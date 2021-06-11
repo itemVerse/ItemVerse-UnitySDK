@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Numerics;
 using System.Threading.Tasks;
+
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace SASEULAPI
 {
@@ -18,39 +18,59 @@ namespace SASEULAPI
             public int sort;
         }
 
-        private WWWForm Logic(string from, int page, int count, int sort)
+        private async Task Logic(string from, int page, int count, int sort)
         {
-            ListNFTStructure structure = new ListNFTStructure();
-            WWWForm form = new WWWForm();
+            await Task.Run(() =>
+            {
+                ListNFTStructure structure = new ListNFTStructure();
 
-            structure.type = "ListNFT";
-            structure.from = from;
-            structure.page = page;
-            structure.count = count;
-            structure.sort = sort;
+                structure.type = "ListNFT";
+                structure.from = from;
+                structure.page = page;
+                structure.count = count;
+                structure.sort = sort;
 
-            string request = JsonUtility.ToJson(structure);
+                string request = JsonUtility.ToJson(structure);
 
-            form.AddField("request", request);
-
-            return form;
+                form.AddField("request", request);
+            });
         }
 
-        public IEnumerator Call(string from, int page, int count, int sort, Action callback)
+        private void Init()
         {
-            WWWForm form = Logic(from, page, count, sort);
-
-            yield return Send("/request", form);
-
-            callback();
+            result = null;
+            status = false;
+            form = new WWWForm();
         }
-        public IEnumerator Call(string from, int page, int count, int sort, Action<string, bool> callback)
+        private async Task Run(string from, int page, int count, int sort)
         {
-            WWWForm form = Logic(from, page, count, sort);
-
-            yield return Send("/request", form);
-
+            Init();
+            await Logic(from, page, count, sort);
+            await Send("/request");
+        }
+        public async void Call(string from, int page, int count, int sort)
+        {
+            await Run(from, page, count, sort);
+        }
+        public async void Call(string from, int page, int count, int sort, Action<string> callback)
+        {
+            await Run(from, page, count, sort);
+            callback(result);
+        }
+        public async void Call(string from, int page, int count, int sort, Action<bool> callback)
+        {
+            await Run(from, page, count, sort);
+            callback(status);
+        }
+        public async void Call(string from, int page, int count, int sort, Action<string, bool> callback)
+        {
+            await Run(from, page, count, sort);
             callback(result, status);
+        }
+        public async void Call(string from, int page, int count, int sort, Action<bool, string> callback)
+        {
+            await Run(from, page, count, sort);
+            callback(status, result);
         }
     }
 }

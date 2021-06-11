@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Numerics;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -9,11 +11,13 @@ public class SaseulApi
 {
     public string result = null;
     public bool status = false;
+    public WWWForm form = new WWWForm();
 
-    public IEnumerator Send(string apiUrl, WWWForm form)
+    public async Task Send(string apiUrl)
     {
         UnityWebRequest www = UnityWebRequest.Post(SaseulStatus.Instance._url + apiUrl, form);
-        yield return www.SendWebRequest();
+
+        await www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
         {

@@ -8,8 +8,6 @@ using Nethereum.Hex.HexTypes;
 
 public class EthereumExample : MonoBehaviour
 {
-    CoroutineManager coroutineManager;
-
     BigInteger blockNumber = 100000;
     string privateKey = "74945e566f482e022cbd0afba6b4c2ae15781f3551b0966e626c16fe432ec45e";
     string address = "0xB666D5dEd9510C913a0703dDa2D4803a31f56B40";
@@ -22,16 +20,13 @@ public class EthereumExample : MonoBehaviour
 
     void Start()
     {
-        coroutineManager = GameObject.Find("CoroutineManager").GetComponent<CoroutineManager>();
-
-        Example_Transfer();
+        Example_GetBalance();
     }
 
 
     void Example_GetBalance()
     {
         var api = new GetBalance();
-        int key = coroutineManager.MakeKey();
 
         api.Call(address, (string result, bool status) =>
         {
@@ -42,7 +37,7 @@ public class EthereumExample : MonoBehaviour
     void Example_GetBlockByNumber()
     {
         var api = new GetBlockByNumber();
-        int key = coroutineManager.MakeKey();
+
         HexBigInteger bigInteger = new HexBigInteger(blockNumber);
 
         api.Call(bigInteger, (string result, bool status) =>

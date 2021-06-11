@@ -7,7 +7,7 @@ using UnityEditor;
 
 public class SaseulStatus : MonoBehaviour
 {
-    private SaseulStatus() { }
+    private SaseulStatus() {}
     private static SaseulStatus _instance = null;
     public static SaseulStatus Instance
     {
@@ -16,12 +16,15 @@ public class SaseulStatus : MonoBehaviour
             if (_instance == null)
             {
                 _instance = GameObject.Find("SaseulStatus").GetComponent<SaseulStatus>();
-
-                SaseulUtil.SetNetwork(_instance.netType);
             }
 
             return _instance;
         }
+    }
+
+    private void Awake()
+    {
+        SaseulUtil.SetNetwork(SaseulStatus.Instance.netType);
     }
 
     public string netType = "aria";
