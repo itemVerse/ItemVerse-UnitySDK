@@ -49,19 +49,12 @@ namespace EthereumAPI
             }
         }
 
-        public void Call(BigInteger tokenId, string contractAddress, Action callback)
+        public async Task<Tuple<string, bool>> Call(BigInteger tokenId, string contractAddress)
         {
-            Logic(tokenId, contractAddress).ContinueWith(task =>
-            {
-                callback();
-            });
-        }
-        public void Call(BigInteger tokenId, string contractAddress, Action<string, bool> callback)
-        {
-            Logic(tokenId, contractAddress).ContinueWith(task =>
-            {
-                callback(result, status);
-            });
+            Init();
+            await Logic(tokenId, contractAddress);
+
+            return new Tuple<string, bool>(result, status);
         }
     }
 }

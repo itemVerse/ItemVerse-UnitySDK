@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
 
@@ -36,41 +37,14 @@ namespace SASEULAPI
             });
         }
 
-        private void Init()
-        {
-            result = null;
-            status = false;
-            form = new WWWForm();
-        }
-        private async Task Run(string from, int page, int count, int sort)
+        public async Task<Tuple<string, bool>> Call(string from, int page, int count, int sort)
         {
             Init();
             await Logic(from, page, count, sort);
             await Send("/request");
+
+            return new Tuple<string, bool> (result, status);
         }
-        public async void Call(string from, int page, int count, int sort)
-        {
-            await Run(from, page, count, sort);
-        }
-        public async void Call(string from, int page, int count, int sort, Action<string> callback)
-        {
-            await Run(from, page, count, sort);
-            callback(result);
-        }
-        public async void Call(string from, int page, int count, int sort, Action<bool> callback)
-        {
-            await Run(from, page, count, sort);
-            callback(status);
-        }
-        public async void Call(string from, int page, int count, int sort, Action<string, bool> callback)
-        {
-            await Run(from, page, count, sort);
-            callback(result, status);
-        }
-        public async void Call(string from, int page, int count, int sort, Action<bool, string> callback)
-        {
-            await Run(from, page, count, sort);
-            callback(status, result);
-        }
+
     }
 }

@@ -29,19 +29,12 @@ namespace EthereumAPI
             }
         }
 
-        public void Call(HexBigInteger blockNumber, Action callback)
+        public async Task<Tuple<string, bool>> Call(HexBigInteger blockNumber)
         {
-            Logic(blockNumber).ContinueWith(task =>
-            {
-                callback();
-            });
-        }
-        public void Call(HexBigInteger blockNumber, Action<string, bool> callback)
-        {
-            Logic(blockNumber).ContinueWith(task =>
-            {
-                callback(result, status);
-            });
+            Init();
+            await Logic(blockNumber);
+
+            return new Tuple<string, bool>(result, status);
         }
     }
 }

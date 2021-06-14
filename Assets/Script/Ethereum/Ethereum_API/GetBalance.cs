@@ -29,30 +29,12 @@ namespace EthereumAPI
             }
         }
 
-        public Task Run(string address)
+        public async Task<Tuple<string, bool>> Call(string address)
         {
-            return Logic(address);
-        }
-        
-        public void Call(string address)
-        {
-            Logic(address);
-        }
-        public void Call(string address, Action callback)
-        {
-            Logic(address).ContinueWith(task => { callback(); });
-        }
-        public void Call(string address, Action<string> callback)
-        {
-            Logic(address).ContinueWith(task =>{ callback(result); });
-        }
-        public void Call(string address, Action<bool> callback)
-        {
-            Logic(address).ContinueWith(task => { callback(status); });
-        }
-        public void Call(string address, Action<string, bool> callback)
-        {
-            Logic(address).ContinueWith(task => { callback(result, status); });
+            Init();
+            await Logic(address);
+
+            return new Tuple<string, bool>(result, status);
         }
     }
 }

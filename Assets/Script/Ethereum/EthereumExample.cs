@@ -20,7 +20,7 @@ public class EthereumExample : MonoBehaviour
 
     void Start()
     {
-        Example_GetBalance();
+        Example_ERC20_GetBalance();
     }
 
 
@@ -28,9 +28,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new GetBalance();
 
-        api.Call(address, (string result, bool status) =>
+        api.Call(address).ContinueWith(task =>
         {
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -40,9 +41,10 @@ public class EthereumExample : MonoBehaviour
 
         HexBigInteger bigInteger = new HexBigInteger(blockNumber);
 
-        api.Call(bigInteger, (string result, bool status) =>
+        api.Call(bigInteger).ContinueWith(task =>
         {
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -50,9 +52,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new GetLatestBlockNumber();
 
-        api.Call((string result, bool status) =>
+        api.Call().ContinueWith(task =>
         {
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -60,9 +63,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new GetTransactionByHash();
 
-        api.Call(transactionHash, (string result, bool status) =>
+        api.Call(transactionHash).ContinueWith(task =>
         {
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -70,9 +74,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new GetTransactionReceipt();
 
-        api.Call(transactionHash, (string result, bool status) =>
+        api.Call(transactionHash).ContinueWith(task =>
         {
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -80,10 +85,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new Transfer();
 
-        api.Call(privateKey, toAddress, amount, (string result, bool status) =>
+        api.Call(privateKey, toAddress, amount).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -93,10 +98,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC20_GetBalance();
 
-        api.Call(address, contractAddress, (string result, bool status) =>
+        api.Call(address, contractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -104,10 +109,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC20_Transfer();
 
-        api.Call(privateKey, toAddress, tokenAmount, contractAddress, (string result, bool status) =>
+        api.Call(privateKey, toAddress, tokenAmount, contractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -115,10 +120,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC20_Name();
 
-        api.Call(contractAddress, (string result, bool status) =>
+        api.Call(contractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -126,10 +131,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC20_Symbol();
 
-        api.Call(contractAddress, (string result, bool status) =>
+        api.Call(contractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -137,10 +142,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC20_TotalSupply();
 
-        api.Call(contractAddress, (string result, bool status) =>
+        api.Call(contractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -150,10 +155,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_GetBalance();
 
-        api.Call("0x4b32da1b12001bc358b6f901294cdf4b13fe37f1", erc721ContractAddress, (string result, bool status) =>
+        api.Call("0x4b32da1b12001bc358b6f901294cdf4b13fe37f1", erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -161,10 +166,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_TokenOfOwnerByIndex();
 
-        api.Call("0x4b32da1b12001bc358b6f901294cdf4b13fe37f1", 0, erc721ContractAddress, (string result, bool status) =>
+        api.Call("0x4b32da1b12001bc358b6f901294cdf4b13fe37f1", 0, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -172,10 +177,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_Name();
 
-        api.Call(erc721ContractAddress, (string result, bool status) =>
+        api.Call(erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -183,10 +188,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_Symbol();
 
-        api.Call(erc721ContractAddress, (string result, bool status) =>
+        api.Call(erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -194,10 +199,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_TotalSupply();
 
-        api.Call(erc721ContractAddress, (string result, bool status) =>
+        api.Call(erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -205,10 +210,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_OwnerOf();
 
-        api.Call(21, erc721ContractAddress, (string result, bool status) =>
+        api.Call(21, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -216,10 +221,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_TokenURI();
 
-        api.Call(21, erc721ContractAddress, (string result, bool status) =>
+        api.Call(21, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 
@@ -227,10 +232,10 @@ public class EthereumExample : MonoBehaviour
     {
         var api = new ERC721_Transfer();
 
-        api.Call(privateKey, toAddress, 21, erc721ContractAddress, (string result, bool status) =>
+        api.Call(privateKey, toAddress, 21, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(status);
-            Debug.Log(result);
+            Debug.Log(task.Result.Item1);
+            Debug.Log(task.Result.Item2);
         });
     }
 }

@@ -28,25 +28,17 @@ namespace EthereumAPI
             }
             catch (Exception e)
             {
-                Debug.Log(JsonConvert.SerializeObject(e));
                 result = e.Message.ToString();
                 status = false;
             }
         }
 
-        public void Call(string privateKey, string toAddress, decimal amount, Action callback)
+        public async Task<Tuple<string, bool>> Call(string privateKey, string toAddress, decimal amount)
         {
-            Logic(privateKey, toAddress, amount).ContinueWith(task =>
-            {
-                callback();
-            });
-        }
-        public void Call(string privateKey, string toAddress, decimal amount, Action<string, bool> callback)
-        {
-            Logic(privateKey, toAddress, amount).ContinueWith(task =>
-            {
-                callback(result, status);
-            });
+            Init();
+            await Logic(privateKey, toAddress, amount);
+
+            return new Tuple<string, bool>(result, status);
         }
     }
 }

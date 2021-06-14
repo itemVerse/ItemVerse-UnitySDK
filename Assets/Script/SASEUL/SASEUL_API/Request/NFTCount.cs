@@ -28,41 +28,13 @@ namespace SASEULAPI
             });
         }
 
-        private void Init()
-        {
-            result = null;
-            status = false;
-            form = new WWWForm();
-        }
-        private async Task Run()
+        public async Task<Tuple<string, bool>> Call()
         {
             Init();
             await Logic();
             await Send("/request");
-        }
-        public async void Call()
-        {
-            await Run();
-        }
-        public async void Call(Action<string> callback)
-        {
-            await Run();
-            callback(result);
-        }
-        public async void Call(Action<bool> callback)
-        {
-            await Run();
-            callback(status);
-        }
-        public async void Call(Action<string, bool> callback)
-        {
-            await Run();
-            callback(result, status);
-        }
-        public async void Call(Action<bool, string> callback)
-        {
-            await Run();
-            callback(status, result);
+
+            return new Tuple<string, bool>(result, status);
         }
     }
 }

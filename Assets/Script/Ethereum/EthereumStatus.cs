@@ -17,12 +17,15 @@ public class EthereumStatus : MonoBehaviour
             if (_instance == null)
             {
                 _instance = GameObject.Find("EthereumStatus").GetComponent<EthereumStatus>();
-
-                EthereumUtil.SetNetwork(_instance.netType);
             }
 
             return _instance;
         }
+    }
+
+    private void Awake()
+    {
+        EthereumUtil.SetNetwork(EthereumStatus.Instance.netType);
     }
 
     public string netType = "ropsten";

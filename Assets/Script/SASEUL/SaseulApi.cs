@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
@@ -7,11 +8,21 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Networking;
 
+using Newtonsoft.Json;
+
 public class SaseulApi
 {
+    public WWWForm form = new WWWForm();
+
     public string result = null;
     public bool status = false;
-    public WWWForm form = new WWWForm();
+
+    public void Init()
+    {
+        result = null;
+        status = false;
+        form = new WWWForm();
+    }
 
     public async Task Send(string apiUrl)
     {

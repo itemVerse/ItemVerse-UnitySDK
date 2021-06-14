@@ -17,13 +17,6 @@ namespace SASEULAPI
             public long timestamp;
         }
 
-        private void Init()
-        {
-            result = null;
-            status = false;
-            form = new WWWForm();
-        }
-
         private async Task Logic(string privateKey)
         {
             await Task.Run(() =>
@@ -49,12 +42,13 @@ namespace SASEULAPI
             });
         }
 
-        public async void Call(string privateKey, Action<string, bool> callback)
+        public async Task<Tuple<string, bool>> Call(string privateKey)
         {
             Init();
             await Logic(privateKey);
             await Send("/sendtransaction");
-            callback(result, status);
+
+            return new Tuple<string, bool>(result, status);
         }
     }
 }

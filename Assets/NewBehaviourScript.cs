@@ -13,6 +13,6 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Rotate(10, 10, 10);
+        gameObject.transform.Rotate(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
     }
 }
