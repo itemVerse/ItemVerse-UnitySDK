@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections;
+using System.Numerics;
+using System.Threading.Tasks;
+using UnityEngine;
+
+using Nethereum.Web3;
+using Nethereum.ABI.FunctionEncoding.Attributes;
+using Nethereum.Contracts.CQS;
+using Nethereum.Util;
+using Nethereum.Web3.Accounts;
+using Nethereum.Hex.HexConvertors.Extensions;
+using Nethereum.Contracts;
+using Nethereum.Contracts.Extensions;
+using Nethereum.JsonRpc.UnityClient;
+using Nethereum.RPC.Eth.DTOs;
+
+namespace IEthereumAPI
+{
+    public class ERC721_Name : IEthereumApi
+    {
+        private static ERC721_Name _instance = null;
+        public static ERC721_Name Instance
+        {
+            get
+            {
+                if (_instance == null) { _instance = new ERC721_Name(); }
+                return _instance;
+            }
+        }
+
+        [Function("name", "string")]
+        public class NameFunction : FunctionMessage{}
+
+        private async Task Logic(string contractAddress)
+        {
+            var abi = new NameFunction(){};
+
+            var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<NameFunction>();
+
+            try
+            {
+                var value = await handler.QueryAsync<string>(contractAddress, abi);
+
+                result = value.ToString();
+                status = true;
+            }
+            catch (Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
+        }
+
+        public async Task<Tuple<string, bool>> Call(string contractAddress)
+        {
+            Init();
+            await Logic(contractAddress);
+
+            return new Tuple<string, bool>(result, status);
+        }
+    }
+}
