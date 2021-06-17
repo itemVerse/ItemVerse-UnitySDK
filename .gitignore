@@ -2,6 +2,9 @@ Library/
 Logs/
 Obj/
 Temp/
+ios_build/
+IOS_BUILD/
+IOS_Build/
 
 ExportedObj/
 .consulo/
