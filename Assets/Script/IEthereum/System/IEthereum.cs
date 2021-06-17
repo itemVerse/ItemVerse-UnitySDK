@@ -1,6 +1,6 @@
 ﻿using IEthereumAPI;
 
-namespace Itemverse
+namespace ITEM_NET
 {
     public class IEthereum
     {

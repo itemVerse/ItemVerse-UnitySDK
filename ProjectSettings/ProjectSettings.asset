@@ -700,7 +700,8 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   platformArchitecture:
     iPhone: 2
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

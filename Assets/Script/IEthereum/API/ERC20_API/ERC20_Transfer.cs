@@ -21,27 +21,22 @@ namespace IEthereumAPI
             }
         }
 
-        [Function("Transfer", "bool")]
+        [Function("transfer", "bool")]
         public class TransferFunction : FunctionMessage
         {
-            [Parameter("address", "_from", 1)]
-            public string From { get; set; }
-
-            [Parameter("address", "_to", 2)]
+            [Parameter("address", "_to", 1)]
             public string To { get; set; }
 
-            [Parameter("uint256", "_value", 3)]
+            [Parameter("uint256", "_value", 2)]
             public BigInteger TokenAmount { get; set; }
         }
 
         private async Task Logic(string privateKey, string toAddress, BigInteger tokenAmount, string contractAddress)
         {
-            Account account = new Account(privateKey);
             IEthereumUtil.Instance.LoginWeb3(privateKey);
 
             var abi = new TransferFunction()
             {
-                From = account.Address,
                 To = toAddress,
                 TokenAmount = Web3.Convert.ToWei(tokenAmount),
             };
