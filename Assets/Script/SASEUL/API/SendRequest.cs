@@ -20,17 +20,15 @@ namespace SASEULAPI
             }
         }
 
-        private async Task Logic(Dictionary<string, string> requestData)
+        private async Task Logic(string requestData)
         {
             await Task.Run(() =>
             {
-                string request = JsonConvert.SerializeObject(requestData);
-
-                form.AddField("request", request);
+                form.AddField("request", requestData);
             });
         }
 
-        public async Task<Tuple<string, bool>> Call(Dictionary<string, string> requestData)
+        public async Task<Tuple<string, bool>> Call(string requestData)
         {
             Init();
             await Logic(requestData);

@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Numerics;
 using System.Threading.Tasks;
-using UnityEngine;
 
-using Nethereum.Web3;
 using Nethereum.ABI.FunctionEncoding.Attributes;
-using Nethereum.Contracts.CQS;
-using Nethereum.Util;
-using Nethereum.Web3.Accounts;
-using Nethereum.Hex.HexConvertors.Extensions;
 using Nethereum.Contracts;
-using Nethereum.Contracts.Extensions;
-using Nethereum.JsonRpc.UnityClient;
-using Nethereum.RPC.Eth.DTOs;
 
 namespace IEthereumAPI
 {

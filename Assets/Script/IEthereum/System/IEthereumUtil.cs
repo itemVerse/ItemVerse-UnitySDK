@@ -1,4 +1,10 @@
-﻿using Nethereum.Web3;
+﻿using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+
+using UnityEngine;
+
+using Nethereum.Web3;
 using Nethereum.Web3.Accounts;
 using Nethereum.Hex.HexConvertors.Extensions;
 
@@ -23,6 +29,10 @@ public class IEthereumUtil
         return account;
     }
 
+    public bool TrustCertificate(object sender, X509Certificate x509Certificate, X509Chain x509Chain, SslPolicyErrors sslPolicyErrors)
+    {
+        return true;
+    }
     public void SetNetwork(string nettype)
     {
         IEthereumStatus.Instance.netType = nettype;
@@ -39,7 +49,13 @@ public class IEthereumUtil
                 break;
         }
 
-        IEthereumStatus.Instance._web3 = new Web3(IEthereumStatus.Instance._infuraUrl);
+        System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+        System.Net.ServicePointManager.ServerCertificateValidationCallback = TrustCertificate;
+
+        Debug.Log(IEthereumStatus.Instance._infuraUrl);
+
+        Account account = new Account("74945e566f482e022cbd0afba6b4c2ae15781f3551b0966e626c16fe432ec45e");
+        IEthereumStatus.Instance._web3 = new Web3(account, IEthereumStatus.Instance._infuraUrl);
     }
 
     public void LoginWeb3(string privateKey)

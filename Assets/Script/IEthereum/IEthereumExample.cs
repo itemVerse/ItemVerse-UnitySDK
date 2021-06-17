@@ -4,203 +4,255 @@ using System.Collections.Generic;
 using System.Numerics;
 
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
 
+using Itemverse;
 using Nethereum.Hex.HexTypes;
 
 public class IEthereumExample : MonoBehaviour
 {
-    IEthereum.IEthereum ieth = new IEthereum.IEthereum();
+    private IEthereum ieth;
 
-    BigInteger blockNumber = 100000;
-    string privateKey = "74945e566f482e022cbd0afba6b4c2ae15781f3551b0966e626c16fe432ec45e";
-    string address = "0xB666D5dEd9510C913a0703dDa2D4803a31f56B40";
-    string toAddress = "0x287DB8145a10990fF6320A85fbFeCA7A44C3D562";
-    decimal amount = 0.1m;
-    BigInteger tokenAmount = 1;
-    string transactionHash = "0x96a1e4d67ae2ff8b701606f91d43836391d7d52351d55a2eb5a0fc7d8f1df104";
-    string contractAddress = "0xFab46E002BbF0b4509813474841E0716E6730136";
-    string erc721ContractAddress = "0x2bc6a941a082a1e1057883e91ab9bc7b7515d745";
+    public string privateKey = "74945e566f482e022cbd0afba6b4c2ae15781f3551b0966e626c16fe432ec45e";
+    public string address = "0xB666D5dEd9510C913a0703dDa2D4803a31f56B40";
+    public string toAddress = "0x287DB8145a10990fF6320A85fbFeCA7A44C3D562";
+
+    public decimal ethAmount = 0.1m;
+    public int tokenAmount = 1;
+    public int erc721TokenID = 21;
+    public int erc721TokenIndex = 0;
+
+    public int blockNumber = 100000;
+    public string transactionHash = "0x96a1e4d67ae2ff8b701606f91d43836391d7d52351d55a2eb5a0fc7d8f1df104";
+    public string erc20ContractAddress = "0xFab46E002BbF0b4509813474841E0716E6730136";
+    public string erc721ContractAddress = "0x2bc6a941a082a1e1057883e91ab9bc7b7515d745";
+
+    public Text logText;
+    public string log = "";
 
     void Start()
     {
-        Example_ERC20_GetBalance();
+        IEthereumUtil.Instance.SetNetwork(IEthereumStatus.Instance.netType);
+
+        ieth = new IEthereum();
     }
 
-
-    void Example_GetBalance()
+    private void Update()
     {
+        logText.text = log;
+    }
+
+    public void Example_GetBalance()
+    {
+        Debug.Log("Loading...");
         ieth.GetBalance.Call(address).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            log = task.Result.Item1;
+            Debug.Log("Call: GetBalance");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_GetBlockByNumber()
+    public void Example_GetBlockByNumber()
     {
-        HexBigInteger bigInteger = new HexBigInteger(blockNumber);
-
-        ieth.GetBlockByNumber.Call(bigInteger).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.GetBlockByNumber.Call(new HexBigInteger(blockNumber)).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: GetBlockByNumber");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_GetLatestBlockNumber()
+    public void Example_GetLatestBlockNumber()
     {
+        Debug.Log("Loading...");
         ieth.GetLatestBlockNumber.Call().ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: GetLatestBlockNumber");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_GetTransactionByHash()
+    public void Example_GetTransactionByHash()
     {
+        Debug.Log("Loading...");
         ieth.GetTransactionByHash.Call(transactionHash).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: GetTransactionByHash");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_GetTransactionReceipt()
+    public void Example_GetTransactionReceipt()
     {
+        Debug.Log("Loading...");
         ieth.GetTransactionReceipt.Call(transactionHash).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: GetTransactionReceipt");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_Transfer()
+    public void Example_Transfer()
     {
-        ieth.Transfer.Call(privateKey, toAddress, amount).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.Transfer.Call(privateKey, toAddress, ethAmount).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: Transfer");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
 
 
-    void Example_ERC20_GetBalance()
+    public void Example_ERC20_GetBalance()
     {
-        ieth.ERC20_GetBalance.Call(address, contractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC20_GetBalance.Call(address, erc20ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC20_GetBalance");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC20_Transfer()
+    public void Example_ERC20_Transfer()
     {
-        ieth.ERC20_Transfer.Call(privateKey, toAddress, tokenAmount, contractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC20_Transfer.Call(privateKey, toAddress, tokenAmount, erc20ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC20_Transfer");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC20_Name()
+    public void Example_ERC20_Name()
     {
-        ieth.ERC20_Name.Call(contractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC20_Name.Call(erc20ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC20_Name");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC20_Symbol()
+    public void Example_ERC20_Symbol()
     {
-        ieth.ERC20_Symbol.Call(contractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC20_Symbol.Call(erc20ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC20_Symbol");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC20_TotalSupply()
+    public void Example_ERC20_TotalSupply()
     {
-        ieth.ERC20_TotalSupply.Call(contractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC20_TotalSupply.Call(erc20ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC20_TotalSupply");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
 
-
-    void Example_ERC721_GetBalance()
+    public void Example_ERC721_GetBalance()
     {
-        ieth.ERC721_GetBalance.Call("0x4b32da1b12001bc358b6f901294cdf4b13fe37f1", erc721ContractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC721_GetBalance.Call(address, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_GetBalance");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC721_TokenOfOwnerByIndex()
+    public void Example_ERC721_TokenOfOwnerByIndex()
     {
-        ieth.ERC721_TokenOfOwnerByIndex.Call("0x4b32da1b12001bc358b6f901294cdf4b13fe37f1", 0, erc721ContractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC721_TokenOfOwnerByIndex.Call(address, erc721TokenIndex, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_TokenOfOwnerByIndex");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC721_Name()
+    public void Example_ERC721_Name()
     {
+        Debug.Log("Loading...");
         ieth.ERC721_Name.Call(erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_Name");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC721_Symbol()
+    public void Example_ERC721_Symbol()
     {
+        Debug.Log("Loading...");
         ieth.ERC721_Symbol.Call(erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_Symbol");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC721_TotalSupply()
+    public void Example_ERC721_TotalSupply()
     {
+        Debug.Log("Loading...");
         ieth.ERC721_TotalSupply.Call(erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_TotalSupply");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC721_OwnerOf()
+    public void Example_ERC721_OwnerOf()
     {
-        ieth.ERC721_OwnerOf.Call(21, erc721ContractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC721_OwnerOf.Call(erc721TokenID, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_OwnerOf");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC721_TokenURI()
+    public void Example_ERC721_TokenURI()
     {
-        ieth.ERC721_TokenURI.Call(21, erc721ContractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC721_TokenURI.Call(erc721TokenID, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_TokenURI");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 
-    void Example_ERC721_Transfer()
+    public void Example_ERC721_Transfer()
     {
-        ieth.ERC721_Transfer.Call(privateKey, toAddress, 21, erc721ContractAddress).ContinueWith(task =>
+        Debug.Log("Loading...");
+        ieth.ERC721_Transfer.Call(privateKey, toAddress, erc721TokenID, erc721ContractAddress).ContinueWith(task =>
         {
-            Debug.Log(task.Result.Item1);
-            Debug.Log(task.Result.Item2);
+            Debug.Log("Call: ERC721_Transfer");
+            Debug.Log("Data: " + task.Result.Item1);
+            Debug.Log("Status: " + task.Result.Item2);
         });
     }
 }
