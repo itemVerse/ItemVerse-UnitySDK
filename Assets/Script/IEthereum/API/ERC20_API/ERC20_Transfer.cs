@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 using Nethereum.Web3;
 using Nethereum.ABI.FunctionEncoding.Attributes;
-using Nethereum.Web3.Accounts;
 using Nethereum.Contracts;
 
 namespace IEthereumAPI

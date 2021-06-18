@@ -1,10 +1,4 @@
-﻿using System.Net;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-
-using UnityEngine;
-
-using Nethereum.Web3;
+﻿using Nethereum.Web3;
 using Nethereum.Web3.Accounts;
 using Nethereum.Hex.HexConvertors.Extensions;
 

@@ -3,8 +3,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-using Newtonsoft.Json;
-
 public class SaseulApi
 {
     public WWWForm form = new WWWForm();

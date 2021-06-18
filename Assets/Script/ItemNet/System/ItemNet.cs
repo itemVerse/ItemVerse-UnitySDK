@@ -4,13 +4,11 @@ namespace ITEM_NET
 {
     public class ItemNet
     {
-        // SASEUL Request API
+        // SASEUL Example API
         public GetNFT GetNFT = GetNFT.Instance;
         public GetNFTCBalance GetNFTCBalance = GetNFTCBalance.Instance;
         public ListNFT ListNFT = ListNFT.Instance;
         public NFTCount NFTCount = NFTCount.Instance;
-
-        // SASEUL Transaction API
         public CreateNFT CreateNFT = CreateNFT.Instance;
         public CreateNFTC CreateNFTC = CreateNFTC.Instance;
         public FaucetNFTC FaucetNFTC = FaucetNFTC.Instance;

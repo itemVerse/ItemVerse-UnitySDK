@@ -37,7 +37,7 @@ namespace IEthereumAPI
 
             try
             {
-                var value = await handler.QueryAsync<BigInteger>(contractAddress, abi);
+                var value = await handler.QueryAsync<object>(contractAddress, abi);
 
                 result = value.ToString();
                 status = true;

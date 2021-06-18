@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Net;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
 
 using Nethereum.Web3;
 using Nethereum.Util;
@@ -21,10 +18,6 @@ namespace IEthereumAPI
             }
         }
 
-        public bool TrustCertificate(object sender, X509Certificate x509Certificate, X509Chain x509Chain, SslPolicyErrors sslPolicyErrors)
-        {
-            return true;
-        }
         private async Task Logic(string address)
         {
             try

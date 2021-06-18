@@ -11,7 +11,6 @@ public class ItemNetStatus : MonoBehaviour
         {
             if (_instance == null)
             {
-                
                 _instance = GameObject.Find("ItemNetStatus").GetComponent<ItemNetStatus>();
             }
 

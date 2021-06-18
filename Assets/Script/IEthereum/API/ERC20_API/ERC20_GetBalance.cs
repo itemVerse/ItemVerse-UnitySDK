@@ -39,9 +39,9 @@ namespace IEthereumAPI
 
             try
             {
-                var value = await handler.QueryAsync<BigInteger>(contractAddress, abi);
+                var value = await handler.QueryAsync<object>(contractAddress, abi);
 
-                result = Web3.Convert.FromWei(value, UnitConversion.EthUnit.Ether).ToString();
+                result = Web3.Convert.FromWei(BigInteger.Parse(value.ToString()), UnitConversion.EthUnit.Ether).ToString();
                 status = true;
             } catch(Exception e)
             {

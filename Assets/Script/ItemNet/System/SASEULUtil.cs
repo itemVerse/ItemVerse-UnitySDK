@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Numerics;
-
-public class SaseulUtil
+﻿public class SaseulUtil
 {
     private static SaseulUtil _instance = null;
     public static SaseulUtil Instance
