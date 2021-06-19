@@ -46,7 +46,7 @@
 1. ItemNet 유니티 패키지를 설치합니다.
 2. 유니티 프로젝트를 열고 ItemNet 유니티 패키지를 임포트합니다.
    - 2020.3(LTS), 2021.1 버전에서는 Plugins 폴더의 Newtonsoft.json.dll을 제외합니다. 이 버전들에서는 기본적으로 collab-proxy(유니티 콜라보레이터) 패키지가 설치되는데 이 패키지가 Newtonsoft.json.dll을 포함하고 있어 플러그인 충돌문제가 발생하기 때문입니다.
-   - <img src="https://user-images.githubusercontent.com/49587288/122644950-b2124f80-d152-11eb-820f-441b8af9dbd7.png" style="zoom:33%;" />
+   - <img src="https://user-images.githubusercontent.com/49587288/122644950-b2124f80-d152-11eb-820f-441b8af9dbd7.png" style="width: auto; height:100px;" />
 3. Scenes 폴더에서 "Demo" Scene을 열어줍니다.
 4. ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample 오브젝트의 Inspector뷰에서 네트워크 및 테스트 데이터 설정을 할 수 있습니다.
    - 이더리움 설정
