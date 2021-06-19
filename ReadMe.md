@@ -46,12 +46,12 @@
 1. ItemNet 유니티 패키지를 설치합니다.
 2. 유니티 프로젝트를 열고 ItemNet 유니티 패키지를 임포트합니다.
    - 2020.3(LTS), 2021.1 버전에서는 Plugins 폴더의 Newtonsoft.json.dll을 제외합니다. 이 버전들에서는 기본적으로 collab-proxy(유니티 콜라보레이터) 패키지가 설치되는데 이 패키지가 Newtonsoft.json.dll을 포함하고 있어 플러그인 충돌문제가 발생하기 때문입니다.
-   - <img src="/Users/yunhj/Desktop/Guide1.png" alt="Guide1" style="zoom:33%;" />
+   - <img src="https://user-images.githubusercontent.com/49587288/122644950-b2124f80-d152-11eb-820f-441b8af9dbd7.png" style="zoom:33%;" />
 3. Scenes 폴더에서 "Demo" Scene을 열어줍니다.
 4. ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample 오브젝트의 Inspector뷰에서 네트워크 및 테스트 데이터 설정을 할 수 있습니다.
    - 이더리움 설정
      - 이더리움 네트워크 설정
-       1. <img src="/Users/yunhj/Desktop/스크린샷 2021-06-19 오후 8.13.49.png" alt="스크린샷 2021-06-19 오후 8.13.49" style="zoom:50%;" />
+       1. <img src="https://user-images.githubusercontent.com/49587288/122644965-c22a2f00-d152-11eb-87a4-421d16ede7cf.png" style="zoom:50%;" />
        2. 위에 이미지와 같이 "IEthereumStatus" 오브젝트를 선택하면 Inspector창에 이더리움 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
        3. 옵션
           - NetType: "ropsten", "main", "etc" 셋중 하나의 값을 입력해주시면됩니다.
@@ -61,7 +61,7 @@
           - Main Infura Url, Ropsten Infura Url
             - Infura(www.infura.io)에 가입하여 각 네트워크의 rpc url을 입력해주세요.
      - 이더리움 테스트 데이터 설정
-       1. ![스크린샷 2021-06-19 오후 8.14.03](/Users/yunhj/Desktop/스크린샷 2021-06-19 오후 8.14.03.png)
+       1. ![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
        2. 위에 이미지와 같이 "IEthereumExample" 오브젝트를 선택하면 Inspector창에 이더리움 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
        3. 옵션
           - PrivateKey: 내 이더리움 계정의 개인키입니다.
@@ -76,7 +76,7 @@
           - ERC721 ContractAddress: ERC721 토큰의 컨트랙트 어드레스입니다.
    - 사슬 설정
      - 사슬 네트워크 설정
-       1. ![스크린샷 2021-06-19 오후 9.29.23](/Users/yunhj/Desktop/스크린샷 2021-06-19 오후 9.29.23.png)
+       1. ![스크린샷 2021-06-19 오후 9.29.23](https://user-images.githubusercontent.com/49587288/122645014-f998db80-d152-11eb-9b64-a80952f6fbd7.png)
        2. 위에 이미지와 같이 "ItemNetStatus" 오브젝트를 선택하면 Inspector창에 사슬 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
        3. 옵션
           - NetType: "main", "etc" 둘중 하나의 값을 입력해주시면됩니다.
@@ -87,7 +87,7 @@
           - Version
             - 사용하고싶은 사슬의 버전을 입력하시면됩니다. 버전정보는 ItemNet Explorer(http://explorer.itemverse.io/) 또는 ItemNet 공식 깃허브에서 확인하실 수 있습니다.
      - 사슬 테스트 데이터 설정
-       1. ![스크린샷 2021-06-19 오후 9.29.29](/Users/yunhj/Desktop/스크린샷 2021-06-19 오후 9.29.29.png)
+       1. ![스크린샷 2021-06-19 오후 9.29.29](https://user-images.githubusercontent.com/49587288/122645035-1a613100-d153-11eb-9821-c653e78b455e.png)
        2. 위에 이미지와 같이 "ITemNetExample" 오브젝트를 선택하면 Inspector창에 사슬 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 옵션을 설정해주세요.
        3. 옵션
           - PrivateKey: 내 사슬 계정의 개인키입니다.
@@ -105,9 +105,9 @@
           - NFT Description: ERC721(NFT) 토큰 생성에 사용됩니다. 토큰 설명입니다.
           - NFT Image: ERC721(NFT) 토큰 생성에 사용됩니다. 토큰의 이미지입니다.
 5. 게임탭에서 화면 크기를 1024 x 768 사이즈로 맞춰주고 실행합니다.
-   - ![스크린샷 2021-06-19 오후 9.56.51](/Users/yunhj/Desktop/스크린샷 2021-06-19 오후 9.56.51.png)
+   - ![스크린샷 2021-06-19 오후 9.56.51](https://user-images.githubusercontent.com/49587288/122645047-2baa3d80-d153-11eb-8233-a47a686a501e.png)
 6. 버튼들을 클릭하여 Ethereum, Saseul 블록체인 기능들을 테스트해보세요. Change 버튼을 눌러서 테스트할 블록체인을 변경할 수 있으며 Copy 버튼을 눌러서 전체 결과를 복사할 수 있습니다.
-   - ![스크린샷 2021-06-19 오후 9.58.01](/Users/yunhj/Desktop/스크린샷 2021-06-19 오후 9.58.01.png)
+   - ![스크린샷 2021-06-19 오후 9.58.01](https://user-images.githubusercontent.com/49587288/122645058-3a90f000-d153-11eb-8717-1ecdb239ecfa.png)
 7. 이더리움 테스트에 유용한 사이트입니다.
    1. 테스트 이더리움 발급: https://faucet.ropsten.be/
    2. 테스트 이더리움 토큰 발급: https://af.faucet.api.itemverse.io/fauceterc20.html
