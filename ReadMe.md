@@ -15,7 +15,7 @@
 
 #### Saseul
 
-사슬은 이전 블록체인들의 고질적인 문제를 해결한 3세대 블록체인 엔진입니다. 이전 블록체인과 아래와같은 차이점이 있으며 사슬에 대해 더 자세히 알아보고싶다면 www.saseul.com을 방문하시길 바랍니다.
+사슬은 이전 블록체인들의 고질적인 문제를 해결한 3세대 블록체인 엔진입니다. 이전 블록체인과 아래와같은 차이점이 있으며 사슬에 대해 더 자세히 알아보고싶다면 www.saseul.com 을 방문하시길 바랍니다.
 
 1. 토큰 생성, 토큰 송금, 데이터 저장등 모든 기능들이 수수료없이 무료
 2. erc20, erc721(NFT)등 기존의 블록체인 기능들 모두 사용 가능
@@ -68,7 +68,7 @@
          - main: 이더리움의 메인 네트워크입니다.
          - etc: 사용자의 커스텀 네트워크입니다.
        - Main Infura Url, Ropsten Infura Url
-         - Infura(www.infura.io)에 가입하여 각 네트워크의 rpc url을 입력해주세요.
+         - Infura( www.infura.io )에 가입하여 각 네트워크의 rpc url을 입력해주세요.
      - 이더리움 테스트 데이터 설정
 
        ![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
@@ -100,9 +100,9 @@
          - main: 사슬의 메인 네트워크입니다.
          - etc: 추가로 사슬 네트워크를 등록하고싶을때 사용하시면됩니다.
        - Main Url, Etc Url
-         - ItemNet Explorer(http://explorer.itemverse.io/)에 접속하여 각 네트워크의 url을 입력해주세요.
+         - ItemNet Explorer( http://explorer.itemverse.io/ )에 접속하여 각 네트워크의 url을 확인 하실 수 있습니다.
        - Version
-         - 사용하고싶은 사슬의 버전을 입력하시면됩니다. 버전정보는 ItemNet Explorer(http://explorer.itemverse.io/) 또는 ItemNet 공식 깃허브에서 확인하실 수 있습니다.
+         - 사용하고싶은 사슬의 버전을 입력하시면됩니다.
      - 사슬 테스트 데이터 설정
 
        ![스크린샷 2021-06-19 오후 9.29.29](https://user-images.githubusercontent.com/49587288/122645035-1a613100-d153-11eb-9821-c653e78b455e.png)
@@ -617,3 +617,4 @@
 
 ------
 
+### 
