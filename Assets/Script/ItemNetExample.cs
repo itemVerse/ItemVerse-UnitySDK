@@ -55,6 +55,17 @@ public class ItemNetExample : MonoBehaviour
         nftMetadata.Add("image", nftImage);
     }
 
+    public void NewAccount()
+    {
+        string privateKey = SASEULEnc.MakePrivateKey();
+        string publicKey = SASEULEnc.MakePublicKey(privateKey);
+        string address = SASEULEnc.MakeAddress(publicKey);
+
+        Debug.Log("privateKey: " + privateKey);
+        Debug.Log("publicKey: " + publicKey);
+        Debug.Log("address: " + address);
+    }
+
     public void Example_SendRequest()
     {
         ExampleListNFTStructure requestData = new ExampleListNFTStructure();

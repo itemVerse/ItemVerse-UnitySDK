@@ -7,6 +7,7 @@ using UnityEngine;
 
 using ITEM_NET;
 using Nethereum.Hex.HexTypes;
+using Nethereum.Web3.Accounts;
 
 public class IEthereumExample : MonoBehaviour
 {
@@ -31,6 +32,14 @@ public class IEthereumExample : MonoBehaviour
     void Start()
     {
         ieth = new IEthereum();
+    }
+
+    public void NewAccount()
+    {
+        Account account = IEthereumUtil.Instance.NewAccount();
+
+        Debug.Log("privateKey: " + account.PrivateKey);
+        Debug.Log("address: " + account.Address);
     }
 
     public void Example_GetBalance()
