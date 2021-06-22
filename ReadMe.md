@@ -114,17 +114,17 @@
        - PrivateKey: 내 사슬 계정의 개인키입니다.
        - PublicKey: 내 사슬 계정의 공개키입니다.
        - Address: 내 사슬 계정의 주소입니다.
-       - NFTUUID: ERC721(NFT) 토큰의 아이디입니다.
+       - NFTUUID: ERC-721(NFT) 토큰의 아이디입니다.
        - Page: ListNFT 기능에 사용되는 옵션입니다. 출력 페이지를 지정합니다.
        - Count: ListNFT 기능에 사용되는 옵션입니다. 출력 개수를 지정합니다.
        - Sort: ListNFT 기능에 사용되는 옵션입니다. 정렬 타입을 지정합니다.
          - "1": 오름차순
          - "-1": 내림차순
-       - NFT Class: ERC721(NFT) 토큰 생성에 사용됩니다. 토큰의 그룹명입니다.
-       - NFT Name: ERC721(NFT) 토큰 생성에 사용됩니다. 토큰의 이름입니다.
-       - NFT Thumbnail: ERC721(NFT) 토큰 생성에 사용됩니다. 토큰의 썸네일입니다.
-       - NFT Description: ERC721(NFT) 토큰 생성에 사용됩니다. 토큰 설명입니다.
-       - NFT Image: ERC721(NFT) 토큰 생성에 사용됩니다. 토큰의 이미지입니다.
+       - NFT Class: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 그룹명입니다.
+       - NFT Name: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 이름입니다.
+       - NFT Thumbnail: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 썸네일입니다.
+       - NFT Description: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰 설명입니다.
+       - NFT Image: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 이미지입니다.
 
 5. Game 탭에서 화면 크기를 1024 x 768 사이즈로 맞춰주고 실행합니다.
 
