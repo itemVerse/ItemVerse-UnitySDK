@@ -550,7 +550,7 @@
 
  - **예제:** Script/ItemNetExample.cs
 
- - **API 문서:** https://docs.saseul.com
+ - **API 문서:** https://docs.itemverse.io
 
  - **<u>주의:</u>** 아래의 API를 제외한 CreateNFT 등의 API는 임시로 추가된 API입니다. 임시 API는 차후 업데이트에 따라 변경이 될 수 있습니다. 자세한 사항은 API 문서를 참고하여 주시기바랍니다.
 
