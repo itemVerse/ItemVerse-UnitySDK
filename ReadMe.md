@@ -15,7 +15,7 @@ You can use ETH and ERC-20 tokens from Ethereum to replace in-game money, and ER
 
 #### SASEUL
 
-SASEUL is a third-generation blockchain engine that has solved the chronic problems of previous blockchain engines. It has the following differences from previous blockchain engines. If you want to learn more about the SASEUL, please visit our website www.saseul.com.
+SASEUL is a third-generation blockchain engine that has solved the chronic problems of previous blockchain engines. It has the following differences from previous blockchain engines. If you want to learn more about the SASEUL, please visit our website https://www.saseul.com.
 
 1. **No transaction fee:** All functions such as generating tokens, transferring tokens, storing data, etc. are free of charge
 2. **Full functionality:** All existing blockchain functionalities such as ERC-20 and ERC-721(NFT) are available
