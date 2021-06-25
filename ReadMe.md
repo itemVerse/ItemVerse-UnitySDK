@@ -68,7 +68,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
           - main: Ethereum's main network.
           - etc: User's custom network.
         - Main Infura Url, Ropsten Infura Url
-          - Sign up infura ( www.infura.io ) and enter the rpc url of each network.
+          - Sign up infura ( https://www.infura.io ) and enter the rpc url of each network.
       - Ethereum test data setup
 
         ![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
@@ -100,7 +100,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
           - main: main network of the SASEUL.
           - etc: You can use it when you want to register an additional SASEUL network.
         - Main Url, Etc Url
-          - You can check the url of each network by accessing ItemNet Explorer ( http://explorer.itemverse.io/ ).
+          - You can check the url of each network by accessing ItemNet Explorer ( https://explorer.itemverse.io/ ).
         - Version
           - Enter the version of the SASEUL you want to use.
       - SASEUL test data configuration
