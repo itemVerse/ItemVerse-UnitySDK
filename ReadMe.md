@@ -77,16 +77,16 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
         **options**
 
-        - PrivateKey: private key of Ethereum account.
-        - Address: address of Ethereum account.
-        - To Address: The address of the counterpart Ethereum account.
-        - Token Amount: The amount of ERC-20 tokens to send.
+        - PrivateKey: Private key of Ethereum account.
+        - Address: Address of Ethereum account.
+        - To Address: Address of the counterpart Ethereum account.
+        - Token Amount: Amount of ERC-20 tokens to send.
         - ERC721 Token Id: ERC721 token ID.
-        - ERC721 Token Index: The index of ERC-721 token to inquire.
-        - Block Number: The number of the block to inquire.
-        - Transaction Hash: The transaction hash to inquire.
-        - ERC20 ContractAddress: The contract address of the ERC-20 token.
-        - ERC721 ContractAddress: The contract address of the ERC-721 token.
+        - ERC721 Token Index: Index of ERC-721 token to inquire.
+        - Block Number: Number of the block to inquire.
+        - Transaction Hash: Transaction hash to inquire.
+        - ERC20 ContractAddress: Contract address of the ERC-20 token.
+        - ERC721 ContractAddress: Contract address of the ERC-721 token.
     - SASEUL configuration
       - SASEUL network configuration
 
