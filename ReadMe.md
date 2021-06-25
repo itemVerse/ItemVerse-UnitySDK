@@ -82,7 +82,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
         - To Address: The address of the counterpart Ethereum account.
         - Token Amount: The amount of ERC-20 tokens to send.
         - ERC721 Token Id: ERC721 token ID.
-        - ERC721 Token Index: The index of my ERC-721 token to inquire.
+        - ERC721 Token Index: The index of ERC-721 token to inquire.
         - Block Number: The number of the block to inquire.
         - Transaction Hash: The transaction hash to inquire.
         - ERC20 ContractAddress: The contract address of the ERC-20 token.
