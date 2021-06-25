@@ -7,6 +7,7 @@ using UnityEngine;
 
 using ITEM_NET;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 public class ItemNetExample : MonoBehaviour
 {
@@ -138,6 +139,12 @@ public class ItemNetExample : MonoBehaviour
         Debug.Log("Loading...");
         itemNet.GetNFTCBalance.Call(address).ContinueWith(task => {
             logManager.SaseulResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
+            if (task.Result.Item2)
+            {
+                JObject a = JObject.Parse(task.Result.Item1);
+                string text = "NFTC: " + a["data"]["real_balance"].ToString();
+                logManager.BalanceLog(text);
+            }
         });
     }
 

@@ -19,9 +19,13 @@ public class LogManager : MonoBehaviour
 
     public Text resultLogText;
     public Text statusLogText;
+    public Text balanceLogText;
     string resultLog = "";
     string statusLog = "";
+    string balanceLog = "";
+
     bool logStatus = false;
+    bool balanceLogStatus = false;
 
     string saveResult = "";
 
@@ -36,6 +40,12 @@ public class LogManager : MonoBehaviour
             }
             resultLogText.text = "result: " + resultLog;
             statusLogText.text = "status: " + statusLog;
+        }
+
+        if (balanceLogStatus)
+        {
+            balanceLogStatus = false;
+            balanceLogText.text = balanceLog;
         }
     }
 
@@ -80,5 +90,11 @@ public class LogManager : MonoBehaviour
         Debug.Log("Status: " + status);
 
         logStatus = true;
+    }
+
+    public void BalanceLog(string balance)
+    {
+        balanceLog = balance;
+        balanceLogStatus = true;
     }
 }

@@ -9,6 +9,9 @@ using ITEM_NET;
 using Nethereum.Hex.HexTypes;
 using Nethereum.Web3.Accounts;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 public class IEthereumExample : MonoBehaviour
 {
     IEthereum ieth;
@@ -20,12 +23,12 @@ public class IEthereumExample : MonoBehaviour
     public decimal ethAmount = 0.1m;
     public int tokenAmount = 1;
     public int erc721TokenID = 21;
-    public int erc721TokenIndex = 1;
+    public int erc721TokenIndex = 0;
 
     public int blockNumber = 100000;
     public string transactionHash = "0x78d36aca6cb85068cc12a87b7394f612e82ff46f268e969c9488d1f95b8ac650";
     public string erc20ContractAddress = "0xFab46E002BbF0b4509813474841E0716E6730136"; // FaucetToken(FAU)
-    public string erc721ContractAddress = "0x2bc6a941a082a1e1057883e91ab9bc7b7515d745";
+    public string erc721ContractAddress = "0xB9802F0bb491F2065c47C773B3f203944C4A619A";
 
     public LogManager logManager;
 
@@ -48,6 +51,11 @@ public class IEthereumExample : MonoBehaviour
         ieth.GetBalance.Call(address).ContinueWith(task =>
         {
             logManager.ResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
+            if (task.Result.Item2)
+            {
+                string text = "ETH: " + task.Result.Item1;
+                logManager.BalanceLog(text);
+            }
         });
     }
 
@@ -104,6 +112,11 @@ public class IEthereumExample : MonoBehaviour
         ieth.ERC20_GetBalance.Call(address, erc20ContractAddress).ContinueWith(task =>
         {
             logManager.ResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
+            if (task.Result.Item2)
+            {
+                string text = "ERC-20: " + task.Result.Item1;
+                logManager.BalanceLog(text);
+            }
         });
     }
 
@@ -150,6 +163,11 @@ public class IEthereumExample : MonoBehaviour
         ieth.ERC721_GetBalance.Call(address, erc721ContractAddress).ContinueWith(task =>
         {
             logManager.ResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
+            if (task.Result.Item2)
+            {
+                string text = "ERC-721: " + task.Result.Item1;
+                logManager.BalanceLog(text);
+            }
         });
     }
 
