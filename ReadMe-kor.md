@@ -100,7 +100,7 @@
          - main: 사슬의 메인 네트워크입니다.
          - etc: 추가로 사슬 네트워크를 등록하고싶을때 사용하시면됩니다.
        - Main Url, Etc Url
-         - ItemNet Explorer( http://explorer.itemverse.io/ )에 접속하여 각 네트워크의 url을 확인 하실 수 있습니다.
+         - ItemNet Explorer( https://explorer.itemverse.io/ )에 접속하여 각 네트워크의 url을 확인 하실 수 있습니다.
        - Version
          - 사용하고싶은 사슬의 버전을 입력하시면됩니다.
      - 사슬 테스트 데이터 설정
