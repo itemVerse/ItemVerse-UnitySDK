@@ -1,620 +1,685 @@
+
+<![endif]-->
+
 # ItemNet Unity SDK
 
-### SDK 소개
+### Introduction
 
-블록체인 게임개발을 위한 통합 블록체인 SDK입니다. 게임 내 재화 관리, 게임 아이템 및 유저의 정보 저장 등 게임에 사용되는 모든 데이터를 블록체인으로 안전하게 관리할 수 있습니다. 이더리움 및 사슬 블록체인을 지원합니다.
+This is an integrated blockchain SDK for blockchain game development. All data used in the game, such as in-game asset management, game items and user information storage, can be safely managed with blockchain. Supports Ethereum and SASEUL blockchain.
 
 #### Ethereum
 
-이더리움의 ETH와 ERC-20 토큰을 사용하여 게임 내 재화를 대신 할 수 있고, ERC-721(NFT) 토큰을 사용하여 게임 내 오브젝트들을 관리 할 수 있습니다. 하지만 이더리움을 게임에 사용하는건 적합하지 않습니다. 이더리움을 게임에 사용할 때 아래와 같은 문제점이 있으니 꼭 고려하시기 바랍니다.
+You can use ETH and ERC-20 tokens from Ethereum to replace in-game money, and ERC-721 (NFT) tokens to manage in-game objects. However, it is not suitable to use Ethereum for games. When using Ethereum for games, please consider these following problems.
 
-1. 이더리움 송금, 토큰 생성, 토큰 전송, 데이터 저장 등 모든 작업에 이더리움 수수료가 발생하여 큰 부담이 됩니다.
-2. 이더리움에 데이터가 저장되는 시간은 기본적으로 1 분 이상이 소요되어 게임과 같은 플랫폼에서는 적합하지 않습니다.
-3. 이더리움 네트워크 상태에 따라 송금, 데이터 업로드등의 작업들이 자주 실패할 때가 있습니다.
-4. 이미지 데이터와 같이 용량이 큰 데이터는 저장할 수 없습니다.
+1. **Transaction charges**: Sending ETH, generating tokens, transferring tokens, storing data, etc. are all required to pay Ethereum fees.
 
-#### Saseul
+2. **Low speed:** It takes more than 1 minute for data to be stored in Ethereum, so it is not suitable for platforms such as games.
 
-사슬은 이전 블록체인들의 고질적인 문제를 해결한 3세대 블록체인 엔진입니다. 이전 블록체인과 아래와 같은 차이점이 있으며 사슬에 대해 더 자세히 알아보고싶다면 www.saseul.com 을 방문하시길 바랍니다.
+3. **Instability:** Depending on the state of the Ethereum network, operations such as sending and uploading data often fail.
 
-1. 토큰 생성, 토큰 송금, 데이터 저장 등 모든 기능들이 수수료 없이 무료
-2. ERC-20, ERC-721(NFT) 등 기존의 블록체인 기능들 모두 사용 가능
-3. 1 초 미만의 데이터 업로드 소요시간
-4. 최대 20mb까지 데이터 저장 가능
-5. 안정적인 네트워크와 지속적인 업데이트 및 관리
+4. **Limited storage capacity:** Large data such as image data cannot be saved.
 
-------
+#### SASEUL
 
-### 사양
+SASEUL is a third-generation blockchain engine that has solved the chronic problems of previous blockchain engines. It has the following differences from previous blockchain engines. If you want to learn more about the SASEUL, please visit our website www.saseul.com.
+
+1. **No transaction fee:** All functions such as generating tokens, transferring tokens, storing data, etc. are free of charge
+
+2. **Full functionality:** All existing blockchain functionalities such as ERC-20 and ERC-721(NFT) are available
+
+3. **High speed:** It takes less than 1 second to upload data
+
+4. **Sufficient native storage:** Can store data up to 20mb
+
+5. **Stability:** Stable network and continuous update and management
+
+### Platforms Supported
 
 - Unity
-  - 2019.4(LTS)
-  - 2020.3(LTS)
-  - 2021.1
+
+- 2019.4(LTS)
+
+- 2020.3(LTS)
+
+- 2021.1
+
 - Platform
-  - Android
-  - IOS
-  - MacOs
-  - Windows
+
+- Android
+
+- IOS
+
+- MacOs
+
+- Windows
+
 - Etc
-  - .NET 4.X
+
+- .NET 4.X
 
 ------
 
-### 설치
+### Installation
 
-1. ItemNet 유니티 패키지를 설치합니다.
+1. Install the ItemNet Unity package.
 
-2. 유니티 프로젝트를 열고 ItemNet 유니티 패키지를 임포트합니다.
-   - 2020.3(LTS), 2021.1 버전에서는 Plugins 폴더의 Newtonsoft.Json.dll을 제외합니다. 이 버전들에서는 기본적으로 collab-proxy(유니티 콜라보레이터) 패키지가 설치되는데 이 패키지가 Newtonsoft.Json.dll을 포함하고 있어 플러그인 충돌문제가 발생하기 때문입니다.
-   
-     <img src="https://user-images.githubusercontent.com/49587288/122674994-7b037300-d212-11eb-8dd0-c88775f9107a.png"/>
-   
-3. Scenes 폴더에서 "Demo" Scene을 열어줍니다.
+2. Open your Unity project and import the ItemNet Unity package.
 
-4. ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample 오브젝트의 Inspector 뷰에서 네트워크 및 테스트 데이터 설정을 할 수 있습니다.
+- In 2020.3 (LTS) and 2021.1 versions, exclude Newtonsoft.Json.dll in the Plugins folder. In these versions, the collab-proxy (Unity Collaborator) package is installed by default and this package contains Newtonsoft.Json.dll, which causes plug-in conflicts.
 
-   - 이더리움 설정
-     - 이더리움 네트워크 설정
+<img src="https://user-images.githubusercontent.com/49587288/122674994-7b037300-d212-11eb-8dd0-c88775f9107a.png"/>
 
-       <img src="https://user-images.githubusercontent.com/49587288/122644965-c22a2f00-d152-11eb-87a4-421d16ede7cf.png"/>
+3. Open the "Demo" scene in the Scenes folder.
 
-       위에 이미지와 같이 "IEthereumStatus" 오브젝트를 선택하면 Inspector 뷰에 이더리움 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+4. You can set network and test data in the Inspector view of ItemNetStatus, ItemNetExample, IEthereum Status, and Ethereum Example objects.
 
-       **옵션**
+- Ethereum configuration
 
-       - NetType: "ropsten", "main", "etc" 셋중 하나의 값을 입력해주시면됩니다.
-         - ropsten: 이더리움의 Ropsten 테스트 네트워크입니다.
-         - main: 이더리움의 메인 네트워크입니다.
-         - etc: 사용자의 커스텀 네트워크입니다.
-       - Main Infura Url, Ropsten Infura Url
-         - Infura( www.infura.io )에 가입하여 각 네트워크의 rpc url을 입력해주세요.
-     - 이더리움 테스트 데이터 설정
+- Ethereum network configuration
 
-       ![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
+<img src="https://user-images.githubusercontent.com/49587288/122644965-c22a2f00-d152-11eb-87a4-421d16ede7cf.png"/>
 
-       위에 이미지와 같이 "IEthereumExample" 오브젝트를 선택하면 Inspector 뷰에 이더리움 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+As shown in the image above, if you select the "IEthereumStatus" object, the Ethereum network settings are displayed in the Inspector view. Please set it by referring to the option description below.
 
-       **옵션**
+**options**
 
-       - PrivateKey: 내 이더리움 계정의 개인키입니다.
-       - Address: 내 이더리움 계정의 주소입니다.
-       - To Address: 상대 이더리움 계정의 주소입니다.
-       - Token Amount: ERC-20 토큰의 송금 양입니다.
-       - ERC721 Token Id: ERC-721 토큰 ID 입니다.
-       - ERC721 Token Index: 조회할 내 ERC-721 토큰의 인덱스입니다.
-       - Block Number: 조회할 블럭의 넘버입니다.
-       - Transaction Hash: 조회할 트랜잭션의 hash입니다.
-       - ERC20 ContractAddress: ERC-20 토큰의 컨트랙트 어드레스입니다.
-       - ERC721 ContractAddress: ERC-721 토큰의 컨트랙트 어드레스입니다.
-   - 사슬 설정
-     - 사슬 네트워크 설정
+- NetType: Enter one of three values: "ropsten", "main", "etc".
 
-       ![스크린샷 2021-06-19 오후 9.29.23](https://user-images.githubusercontent.com/49587288/122645014-f998db80-d152-11eb-9b64-a80952f6fbd7.png)
+- ropsten: Ethereum's Ropsten test network.
 
-       위에 이미지와 같이 "ItemNetStatus" 오브젝트를 선택하면 Inspector 뷰에 사슬 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+- main: Ethereum's main network.
 
-       **옵션**
+- etc: User's custom network.
 
-       - NetType: "main", "etc" 둘중 하나의 값을 입력해주시면됩니다.
-         - main: 사슬의 메인 네트워크입니다.
-         - etc: 추가로 사슬 네트워크를 등록하고싶을때 사용하시면됩니다.
-       - Main Url, Etc Url
-         - ItemNet Explorer( http://explorer.itemverse.io/ )에 접속하여 각 네트워크의 url을 확인 하실 수 있습니다.
-       - Version
-         - 사용하고싶은 사슬의 버전을 입력하시면됩니다.
-     - 사슬 테스트 데이터 설정
+- Main Infura Url, Ropsten Infura Url
 
-       ![스크린샷 2021-06-19 오후 9.29.29](https://user-images.githubusercontent.com/49587288/122645035-1a613100-d153-11eb-9821-c653e78b455e.png)
+- Sign up infura ( www.infura.io ) and enter the rpc url of each network.
 
-       위에 이미지와 같이 "ItemNetExample" 오브젝트를 선택하면 Inspector 뷰에 사슬 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 옵션을 설정해주세요.
+- Ethereum test data setup
 
-       **옵션**
+![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
 
-       - PrivateKey: 내 사슬 계정의 개인키입니다.
-       - PublicKey: 내 사슬 계정의 공개키입니다.
-       - Address: 내 사슬 계정의 주소입니다.
-       - NFTUUID: ERC-721(NFT) 토큰의 아이디입니다.
-       - Page: ListNFT 기능에 사용되는 옵션입니다. 출력 페이지를 지정합니다.
-       - Count: ListNFT 기능에 사용되는 옵션입니다. 출력 개수를 지정합니다.
-       - Sort: ListNFT 기능에 사용되는 옵션입니다. 정렬 타입을 지정합니다.
-         - "1": 오름차순
-         - "-1": 내림차순
-       - NFT Class: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 그룹명입니다.
-       - NFT Name: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 이름입니다.
-       - NFT Thumbnail: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 썸네일입니다.
-       - NFT Description: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰 설명입니다.
-       - NFT Image: ERC-721(NFT) 토큰 생성에 사용됩니다. 토큰의 이미지입니다.
+As shown in the image above, if you select the "IEthereumExample" object, the Ethereum test data settings are displayed in the Inspector view. Please set it by referring to the options description below.
 
-5. Game 탭에서 화면 크기를 1024 x 768 사이즈로 맞춰주고 실행합니다.
+**options**
 
-   ![스크린샷 2021-06-19 오후 9.56.51](https://user-images.githubusercontent.com/49587288/122645047-2baa3d80-d153-11eb-8233-a47a686a501e.png)
+- PrivateKey: private key of Ethereum account.
 
-6. 버튼들을 클릭하여 Ethereum, Saseul 블록체인 기능들을 테스트해보세요. Change 버튼을 눌러서 테스트할 블록체인을 변경할 수 있으며 Copy 버튼을 눌러서 전체 결과를 복사할 수 있습니다.
+- Address: address of Ethereum account.
 
-   ![스크린샷 2021-06-19 오후 9.58.01](https://user-images.githubusercontent.com/49587288/122645058-3a90f000-d153-11eb-8717-1ecdb239ecfa.png)
+- To Address: The address of the counterpart Ethereum account.
 
-7. 이더리움 테스트에 유용한 사이트입니다.
-   1. 테스트 이더리움 발급: https://faucet.ropsten.be/
-   2. 테스트 이더리움 토큰 발급: https://af.faucet.api.itemverse.io/fauceterc20.html
-   3. 테스트 이더리움 익스플로러: https://ropsten.etherscan.io/
+- Token Amount: The amount of ERC-20 tokens to send.
 
-8. 사슬 테스트에 유용한 사이트입니다.
-   1. 사슬 익스플로러: https://explorer.itemverse.io/
-   2. 사슬 공식 사이트: https://saseul.com/#/
-   3. 개발사 사이트: https://artifriends.com/
-   4. SDK 공식 소개 사이트: https://itemverse.io/
+- ERC721 Token Id: ERC721 token ID.
+
+- ERC721 Token Index: The index of my ERC-721 token to inquire.
+
+- Block Number: The number of the block to inquire.
+
+- Transaction Hash: The transaction hash to inquire.
+
+- ERC20 ContractAddress: The contract address of the ERC-20 token.
+
+- ERC721 ContractAddress: The contract address of the ERC-721 token.
+
+- SASEUL configuration
+
+- SASEUL network configuration
+
+![스크린샷 2021-06-19 오후 9.29.23](https://user-images.githubusercontent.com/49587288/122645014-f998db80-d152-11eb-9b64-a80952f6fbd7.png)
+
+As shown in the image above, if you select the "ItemNetStatus" object, you will see the SASEUL network settings in the Inspector view. Please set it by referring to the options description below.
+
+**options**
+
+- NetType: Enter one of "main" and "etc" values.
+
+- main: main network of the SASEUL.
+
+- etc: You can use it when you want to register an additional SASEUL network.
+
+- Main Url, Etc Url
+
+- You can check the url of each network by accessing ItemNet Explorer ( http://explorer.itemverse.io/ ).
+
+- Version
+
+- Enter the version of the SASEUL you want to use.
+
+- SASEUL test data configuration
+
+![스크린샷 2021-06-19 오후 9.29.29](https://user-images.githubusercontent.com/49587288/122645035-1a613100-d153-11eb-9821-c653e78b455e.png)
+
+As shown in the image above, when the "ItemNetExample" object is selected, the SASEUL test data settings appear in the Inspector view. Please set the options by referring to the option descriptions below.
+
+**options**
+
+- PrivateKey: Private key of SASEUL account.
+
+- PublicKey: Public key of SASEUL account.
+
+- Address: Address of SASEUL account.
+
+- NFTUUID: ID of ERC721 (NFT) token.
+
+- Page: Specifies the number of pages for the ListNFT function.
+
+- Count: Specifies the number of outputs for the ListNFT function.
+
+- Sort: Specifies the sort type or the ListNFT function.
+
+- "1": ascending order
+
+- "-1": descending order
+
+- NFT Class: Group name of the token for generating ERC-721 (NFT) tokens.
+
+- NFT Name: Name of the token for generating ERC-721 (NFT) tokens.
+
+- NFT Thumbnail: Thumbnail of the token for generating ERC-721 (NFT) tokens.
+
+- NFT Description: Token description for generating ERC-721 (NFT) tokens.
+
+- NFT Image: An image of a token for generating ERC-721 (NFT) tokens.
+
+5. In the Game tab, set the screen size to 1024 x 768 and run.
+
+![스크린샷 2021-06-19 오후 9.56.51](https://user-images.githubusercontent.com/49587288/122645047-2baa3d80-d153-11eb-8233-a47a686a501e.png)
+
+6. Test the Ethereum and SASEUL blockchain functions by clicking the buttons. You can change the blockchain to be tested by pressing the Change button and copy the entire result by pressing the Copy button.
+
+![스크린샷 2021-06-19 오후 9.58.01](https://user-images.githubusercontent.com/49587288/122645058-3a90f000-d153-11eb-8717-1ecdb239ecfa.png)
+
+7. Useful sites for Ethereum test.
+
+1. Issuance of test Ethereum: https://faucet.ropsten.be/
+
+2. Issuance of test Ethereum tokens: https://af.faucet.api.itemverse.io/fauceterc721.html
+
+3. Test Ethereum Explorer: https://ropsten.etherscan.io/
+
+8. Useful sites for SASEUL test.
+
+1. SASEUL Explorer: https://explorer.itemverse.io/
+
+2. SASEUL official site: https://saseul.com/#/
+
+3. Developer site: https://artifriends.com/
+
+4. SDK official introduction site: https://itemverse.io/
 
 ------
 
 ### API
 
-#### 이더리움
+#### Ethereum
 
-- **예제:**  Script/IEthereumExample.cs
+- **example:**  Script/IEthereumExample.cs
 
-- **이더리움**
+- **Ethereum**
 
-  - **GetBalance**
+- **GetBalance**
 
-    - Description
+- Description
 
-      이더리움 잔고를 확인합니다.
+Inquire ETH balance.
 
-    - Query Parameters
+- Query Parameters
 
-      | Field   | Type   | Description | Default Value |
-      | ------- | ------ | ----------- | ------------- |
-      | address | string | 계정 주소   |               |
+| Field  | Type  | Description | Default Value |
+| ------- | ------ | ----------- | ------------- |
+| address | string | account address  |  |
 
-    - Response
+- Response
 
-      | Field  | Type   | Description    | Default Value |
-      | ------ | ------ | -------------- | ------------- |
-      | result | string | 계정 잔고      |               |
-      | status | bool   | 요청 성공 여부 |               |
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | -------------- | ------------- |
+| result | string | balance  |  |
+| status | bool  | request status |  |
 
-  - **GetBlockByNumber**
+- **GetBlockByNumber**
 
-    - Description
+- Description
 
-      블럭 넘버로 블럭 데이터를 가져옵니다.
+Get block data by block number.
 
-    - Query Parameters
+- Query Parameters
 
-      | Field       | Type          | Description | Default Value |
-      | ----------- | ------------- | ----------- | ------------- |
-      | blockNumber | HexBigInteger | 블럭 넘버   |               |
+| Field  | Type  | Description | Default Value |
+| ----------- | ------------- | ----------- | ------------- |
+| blockNumber | HexBigInteger | block number  |  |
 
-    - Response
+- Response
 
-      | Field  | Type   | Description    | Default Value |
-      | ------ | ------ | -------------- | ------------- |
-      | result | string | 블럭 데이터    |               |
-      | status | bool   | 요청 성공 여부 |               |
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | -------------- | ------------- |
+| result | string | block data  |  |
+| status | bool  | request status |  |
 
-  - **GetLatestBlockNumber**
+- **GetLatestBlockNumber**
 
-    - Description
+- Description
 
-      이더리움 네트워크의 블럭 개수를 가져옵니다.
+Get the number of blocks in the Ethereum network.
 
-    - Response
+- Response
 
-      | Field  | Type   | Description    | Default Value |
-      | ------ | ------ | -------------- | ------------- |
-      | result | string | 블럭 개수      |               |
-      | status | bool   | 요청 성공 여부 |               |
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | -------------- | ------------- |
+| result | string | number of blocks  |  |
+| status | bool  | request status |  |
 
-  - **GetTransactionByHash**
+- **GetTransactionByHash**
 
-    - Description
+- Description
 
-      트랜잭션 해쉬로 트랜잭션 데이터를 가져옵니다.
+Get transaction data from transaction hash.
 
-    - Query Parameters
+- Query Parameters
 
-      | Field           | Type   | Description   | Default Value |
-      | --------------- | ------ | ------------- | ------------- |
-      | transactionHash | string | 트랜잭션 해쉬 |               |
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | ------------- | ------------- |
+| transactionHash | string | transaction hash |  |
 
-    - Response
+- Response
 
-      | Field  | Type   | Description     | Default Value |
-      | ------ | ------ | --------------- | ------------- |
-      | result | string | 트랜잭션 데이터 |               |
-      | status | bool   | 요청 성공 여부  |               |
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | --------------- | ------------- |
+| result | string | transaction data |  |
+| status | bool  | request status  |  |
 
-  - **GetTransactionReceipt**
+- **GetTransactionReceipt**
 
-    - Description
+- Description
 
-      트랜잭션 해쉬로 트랜잭션 영수증 데이터를 가져옵니다.
+Get transaction receipt data from transaction hash.
 
-    - Query Parameters
+- Query Parameters
 
-      | Field           | Type   | Description   | Default Value |
-      | --------------- | ------ | ------------- | ------------- |
-      | transactionHash | string | 트랜잭션 해쉬 |               |
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | ------------- | ------------- |
+| transactionHash | string | transaction hash |  |
 
-    - Response
+- Response
 
-      | Field  | Type   | Description            | Default Value |
-      | ------ | ------ | ---------------------- | ------------- |
-      | result | string | 트랜잭션 영수증 데이터 |               |
-      | status | bool   | 요청 성공 여부         |               |
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ---------------------- | ------------- |
+| result | string | transaction receipt data |  |
+| status | bool  | request status  |  |
 
-  - **SendRawTransaction**
+- **SendRawTransaction**
 
-    - Description
+- Description
 
-      사인된 트랜잭션을 이더리움 네트워크에 전송합니다.
+Send a signed transaction to the Ethereum network.
 
-    - Query Parameters
+- Query Parameters
 
-      | Field             | Type   | Description            | Default Value |
-      | ----------------- | ------ | ---------------------- | ------------- |
-      | signedTrasnaction | string | 사인된 트랜잭션 데이터 |               |
+| Field  | Type  | Description  | Default Value |
+| ----------------- | ------ | ---------------------- | ------------- |
+| signedTrasnaction | string | signed transaction data |  |
 
-    - Response
+- Response
 
-      | Field  | Type   | Description        | Default Value |
-      | ------ | ------ | ------------------ | ------------- |
-      | result | string | 트랜잭션 전송 결과 |               |
-      | status | bool   | 요청 성공 여부     |               |
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ------------------ | ------------- |
+| result | string | Transaction transfer result |  |
+| status | bool  | request status  |  |
 
-  - **Transfer**
+- **Transfer**
 
-    - Description
+- Description
 
-      이더리움을 송금합니다.
+Send ETH.
 
-    - Query Parameters
+- Query Parameters
 
-      | Field      | Type    | Description | Default Value |
-      | ---------- | ------- | ----------- | ------------- |
-      | privateKey | string  | 계정 개인키 |               |
-      | toAddress  | string  | 수신자 주소 |               |
-      | amount     | decimal | 송금양      |               |
+| Field  | Type  | Description | Default Value |
+| ---------- | ------- | ----------- | ------------- |
+| privateKey | string  | account private key |  |
+| toAddress  | string  | recipient address |  |
+| amount  | decimal | amount  |  |
 
-    - Response
+- Response
 
-      | Field  | Type   | Description    | Default Value |
-      | ------ | ------ | -------------- | ------------- |
-      | result | string | 송금 결과      |               |
-      | status | bool   | 요청 성공 여부 |               |
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | -------------- | ------------- |
+| result | string | transfer result  |  |
+| status | bool  | request status |  |
+
 - **ERC20**
-  
-  - **ERC20_GetBalance**
-  
-    - Description
-  
-      ERC-20 토큰 잔고를 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description          | Default Value |
-      | --------------- | ------ | -------------------- | ------------- |
-      | address         | string | 계정 주소            |               |
-      | contractAddress | string | ERC-20 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description           | Default Value |
-      | ------ | ------ | --------------------- | ------------- |
-      | result | string | 계정 ERC-20 토큰 잔고 |               |
-      | status | bool   | 요청 성공 여부        |               |
-  
-  - **ERC20_Name**
-  
-    - Description
-  
-      ERC-20 토큰의 이름을 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description          | Default Value |
-      | --------------- | ------ | -------------------- | ------------- |
-      | contractAddress | string | ERC-20 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description      | Default Value |
-      | ------ | ------ | ---------------- | ------------- |
-      | result | string | ERC-20 토큰 이름 |               |
-      | status | bool   | 요청 성공 여부   |               |
-  
-  - **ERC20_Symbol**
-  
-    - Description
-  
-      ERC-20 토큰의 심볼을 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description          | Default Value |
-      | --------------- | ------ | -------------------- | ------------- |
-      | contractAddress | string | ERC-20 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description      | Default Value |
-      | ------ | ------ | ---------------- | ------------- |
-      | result | string | ERC-20 토큰 심볼 |               |
-      | status | bool   | 요청 성공 여부   |               |
-  
-  - **ERC20_TotalSupply**
-  
-    - Description
-  
-      ERC-20 토큰의 총 발행량을 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description          | Default Value |
-      | --------------- | ------ | -------------------- | ------------- |
-      | contractAddress | string | ERC-20 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description           | Default Value |
-      | ------ | ------ | --------------------- | ------------- |
-      | result | string | ERC-20 토큰 총 발행량 |               |
-      | status | bool   | 요청 성공 여부        |               |
-  
-  - **ERC20_Transfer**
-  
-    - Description
-  
-      ERC-20 토큰을 송금합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type       | Description          | Default Value |
-      | --------------- | ---------- | -------------------- | ------------- |
-      | privateKey      | string     | 계정 개인키          |               |
-      | toAddress       | string     | 수신자 주소          |               |
-      | tokenAmount     | BigInteger | ERC-20 토큰 송금양   |               |
-      | contractAddress | string     | ERC-20 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description           | Default Value |
-      | ------ | ------ | --------------------- | ------------- |
-      | result | string | ERC-20 토큰 송금 결과 |               |
-      | status | bool   | 요청 성공 여부        |               |
-  
+
+- **ERC20_GetBalance**
+
+- Description
+
+Inquire ERC-20 token balance.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | -------------------- | ------------- |
+| address  | string | account address  |  |
+| contractAddress | string | ERC-20 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | --------------------- | ------------- |
+| result | string | RC-20 token balance |  |
+| status | bool  | request status  |  |
+
+- **ERC20_Name**
+
+- Description
+
+Inquire the name of ERC-20 token.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | -------------------- | ------------- |
+| contractAddress | string | ERC-20 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ---------------- | ------------- |
+| result | string | ERC-20 token name |  |
+| status | bool  | request status  |  |
+
+- **ERC20_Symbol**
+
+- Description
+
+Inquire the symbol of ERC-20 token.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | -------------------- | ------------- |
+| contractAddress | string | ERC-20 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ---------------- | ------------- |
+| result | string | ERC-20 token symbol |  |
+| status | bool  | request status  |  |
+
+- **ERC20_TotalSupply**
+
+- Description
+
+Inquire the total issuance of ERC-20 tokens.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | -------------------- | ------------- |
+| contractAddress | string | ERC-20 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | --------------------- | ------------- |
+| result | string | ERC-20 total token issuance |  |
+| status | bool  | request status  |  |
+
+- **ERC20_Transfer**
+
+- Description
+
+Send a ERC-20 token.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ---------- | -------------------- | ------------- |
+| privateKey  | string  | account private key  |  |
+| toAddress  | string  | recipient address  |  |
+| tokenAmount  | BigInteger | ERC-20 token amount  |  |
+| contractAddress | string  | ERC-20 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | --------------------- | ------------- |
+| result | string | ERC-20 transfer result |  |
+| status | bool  | request status  |  |
+
 - **ERC721**
-  
-  - **ERC721_GetBalance**
-  
-    - Description
-  
-      ERC-721 토큰 잔고를 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description           | Default Value |
-      | --------------- | ------ | --------------------- | ------------- |
-      | address         | string | 게정 주소             |               |
-      | contractAddress | string | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description       | Default Value |
-      | ------ | ------ | ----------------- | ------------- |
-      | result | string | ERC-721 토큰 잔고 |               |
-      | status | bool   | 요청 성공 여부    |               |
-  
-  - **ERC721_Name**
-  
-    - Description
-  
-      ERC-721 토큰 이름을 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description           | Default Value |
-      | --------------- | ------ | --------------------- | ------------- |
-      | contractAddress | string | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description       | Default Value |
-      | ------ | ------ | ----------------- | ------------- |
-      | result | string | ERC-721 토큰 이름 |               |
-      | status | bool   | 요청 성공 여부    |               |
-  
-  - **ERC721_OwnerOf**
-  
-    - Description
-  
-      ERC-721 토큰 Id로 소유자를 검색합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type       | Description           | Default Value |
-      | --------------- | ---------- | --------------------- | ------------- |
-      | tokenId         | BigInteger | ERC-721 토큰 Id       |               |
-      | contractAddress | string     | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description         | Default Value |
-      | ------ | ------ | ------------------- | ------------- |
-      | result | string | ERC-721 토큰 소유자 |               |
-      | status | bool   | 요청 성공 여부      |               |
-  
-  - **ERC721_Symbol**
-  
-    - Description
-  
-      ERC-721 토큰 심볼을 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description           | Default Value |
-      | --------------- | ------ | --------------------- | ------------- |
-      | contractAddress | string | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description       | Default Value |
-      | ------ | ------ | ----------------- | ------------- |
-      | result | string | ERC-721 토큰 심볼 |               |
-      | status | bool   | 요청 성공 여부    |               |
-  
-  - **ERC721_TokenOfOwnerByIndex**
-  
-    - Description
-  
-      계정 주소의 ERC-721 토큰 인덱스로 ERC-721 토큰 Id를 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description           | Default Value |
-      | --------------- | ------ | --------------------- | ------------- |
-      | address         | string | 계정 주소             |               |
-      | index           | string | ERC-721 토큰 인덱스   |               |
-      | contractAddress | string | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description     | Default Value |
-      | ------ | ------ | --------------- | ------------- |
-      | result | string | ERC-721 토큰 Id |               |
-      | status | bool   | 요청 성공 여부  |               |
-  
-  - **ERC721_TokenURI**
-  
-    - Description
-  
-      계정 주소의 ERC-721 토큰 인덱스로 ERC-721 토큰 Id를 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type       | Description           | Default Value |
-      | --------------- | ---------- | --------------------- | ------------- |
-      | tokenId         | BigInteger | ERC-721 토큰 Id       |               |
-      | contractAddress | string     | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description     | Default Value |
-      | ------ | ------ | --------------- | ------------- |
-      | result | string | ERC-721 토큰 Id |               |
-      | status | bool   | 요청 성공 여부  |               |
-  
-  - **ERC721_TotalSupply**
-  
-    - Description
-  
-      ERC-721 토큰의 총 발행량을 확인합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type   | Description           | Default Value |
-      | --------------- | ------ | --------------------- | ------------- |
-      | contractAddress | string | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description            | Default Value |
-      | ------ | ------ | ---------------------- | ------------- |
-      | result | string | ERC-721 토큰 총 발행량 |               |
-      | status | bool   | 요청 성공 여부         |               |
-  
-  - **ERC721_Transfer**
-  
-    - Description
-  
-      ERC-721 토큰을 송금합니다.
-  
-    - Query Parameters
-  
-      | Field           | Type       | Description           | Default Value |
-      | --------------- | ---------- | --------------------- | ------------- |
-      | privateKey      | string     | 계정 개인키           |               |
-      | toAddress       | string     | 수신자 주소           |               |
-      | tokenId         | BigInteger | ERC-721 토큰 ID       |               |
-      | contractAddress | string     | ERC-721 컨트랙트 주소 |               |
-  
-    - Response
-  
-      | Field  | Type   | Description            | Default Value |
-      | ------ | ------ | ---------------------- | ------------- |
-      | result | string | ERC-721 토큰 송금 결과 |               |
-      | status | bool   | 요청 성공 여부         |               |
 
-#### 사슬
+- **ERC721_GetBalance**
 
- - **예제:** Script/ItemNetExample.cs
+- Description
 
- - **API 문서:** https://docs.saseul.com
+Inquire ERC-721 token balance.
 
- - **<u>주의:</u>** 아래의 API를 제외한 CreateNFT 등의 API는 임시로 추가된 API입니다. 임시 API는 차후 업데이트에 따라 변경이 될 수 있습니다. 자세한 사항은 API 문서를 참고하여 주시기바랍니다.
+- Query Parameters
 
- - **SendRequest**
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | --------------------- | ------------- |
+| address  | string |account address  |  |
+| contractAddress | string | ERC-721 contract address |  |
 
-   - Description
+- Response
 
-      사슬 API를 호출합니다.
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ----------------- | ------------- |
+| result | string | ERC-721 token balance |  |
+| status | bool  | request status  |  |
 
-   - Query Parameters
+- **ERC721_Name**
 
-     | Field       | Type   | Description     | Default Value |
-     | ----------- | ------ | --------------- | ------------- |
-     | requestData | string | API 호출 데이터 |               |
+- Description
 
-   - Response
+Inquire ERC-721 token name.
 
-     | Field  | Type   | Description    | Default Value |
-     | ------ | ------ | -------------- | ------------- |
-     | result | string | API 호출 결과  |               |
-     | status | bool   | 요청 성공 여부 |               |
+- Query Parameters
 
- - **SendTransaction**
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | --------------------- | ------------- |
+| contractAddress | string | ERC-721 contract address |  |
 
-   - Description
+- Response
 
-      사슬에 트랜잭션을 전송합니다.
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ----------------- | ------------- |
+| result | string | ERC-721 token name |  |
+| status | bool  | request status  |  |
 
-   - Query Parameters
+- **ERC721_OwnerOf**
 
-     | Field           | Type   | Description              | Default Value |
-     | --------------- | ------ | ------------------------ | ------------- |
-     | privateKey      | string | 트랜잭션을 사인할 개인키 |               |
-     | transactionData | string | 트랜잭션 데이터          |               |
+- Description
 
-   - Response
+Inquire the owner by ERC-721 token Id.
 
-     | Field  | Type   | Description        | Default Value |
-     | ------ | ------ | ------------------ | ------------- |
-     | result | string | 트랜잭션 전송 결과 |               |
-     | status | bool   | 요청 성공 여부     |               |
+- Query Parameters
 
- - **SendRawTransaction**
+| Field  | Type  | Description  | Default Value |
+| --------------- | ---------- | --------------------- | ------------- |
+| tokenId  | BigInteger | ERC-721 token Id  |  |
+| contractAddress | string  | ERC-721 contract address |  |
 
-   - Description
+- Response
 
-      사슬에 사인된 트랜잭션을 전송합니다.
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ------------------- | ------------- |
+| result | string | ERC-721 token owner |  |
+| status | bool  | request status  |  |
 
-   - Query Parameters
+- **ERC721_Symbol**
 
-     | Field       | Type   | Description     | Default Value |
-     | ----------- | ------ | --------------- | ------------- |
-     | transaction | string | 사인된 트랜잭션 |               |
-     | thash       | string | 트랜잭션 해쉬   |               |
-     | publicKey   | string | 공유키          |               |
-     | signature   | string | 사인 데이터     |               |
+- Description
 
-   - Response
+Inquire the ERC-721 token symbol.
 
-     | Field  | Type   | Description             | Default Value |
-     | ------ | ------ | ----------------------- | ------------- |
-     | result | string | 사인 트랜잭션 전송 결과 |               |
-     | status | bool   | 요청 성공 여부          |               |
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | --------------------- | ------------- |
+| contractAddress | string | ERC-721 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ----------------- | ------------- |
+| result | string | ERC-721 token symbol |  |
+| status | bool  | request status  |  |
+
+- **ERC721_TokenOfOwnerByIndex**
+
+- Description
+
+Inquire the ERC-721 token Id from the ERC-721 token index of the account address.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | --------------------- | ------------- |
+| address  | string | account address  |  |
+| index  | string | ERC-721 token index  |  |
+| contractAddress | string | ERC-721 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | --------------- | ------------- |
+| result | string | ERC-721 token id |  |
+| status | bool  | request status  |  |
+
+- **ERC721_TokenURI**
+
+- Description
+
+Inquire the ERC-721 token URI from the ERC-721 token index of the account address.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ---------- | --------------------- | ------------- |
+| tokenId  | BigInteger | ERC-721 token Id  |  |
+| contractAddress | string  | ERC-721 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | --------------- | ------------- |
+| result | string | ERC-721 token Id |  |
+| status | bool  | request status  |  |
+
+- **ERC721_TotalSupply**
+
+- Description
+
+Inquire the total issuance of ERC-721 tokens.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | --------------------- | ------------- |
+| contractAddress | string | ERC-721 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ---------------------- | ------------- |
+| result | string | total issuance of ERC-721 tokens |  |
+| status | bool  | request status  |  |
+
+- **ERC721_Transfer**
+
+- Description
+
+Send a ERC-721 token.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ---------- | --------------------- | ------------- |
+| privateKey  | string  | account private key  |  |
+| toAddress  | string  | recipient address  |  |
+| tokenId  | BigInteger | ERC-721 token id  |  |
+| contractAddress | string  | ERC-721 contract address |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ---------------------- | ------------- |
+| result | string | ERC-721 token transfer result |  |
+| status | bool  | request status  |  |
+
+#### SASEUL
+
+- **example:** Script/ItemNetExample.cs
+
+- **API document:** https://docs.saseul.com
+
+- **<u>note:</u>** Except for the APIs below, APIs such as CreateNFT have been added temporarily. The temporary API is subject to change with future updates. Please refer to the API documentation for details.
+
+- **SendRequest**
+
+- Description
+
+Request SASEUL API
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| ----------- | ------ | --------------- | ------------- |
+| requestData | string | api request data |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | -------------- | ------------- |
+| result | string | api request result  |  |
+| status | bool  | request status |  |
+
+- **SendTransaction**
+
+- Description
+
+Send a transaction to SASEUL
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| --------------- | ------ | ------------------------ | ------------- |
+| privateKey  | string | Private key to sign transaction |  |
+| transactionData | string | transaction data  |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ------------------ | ------------- |
+| result | string | Transaction transfer result |  |
+| status | bool  | request status  |  |
+
+- **SendRawTransaction**
+
+- Description
+
+Send a signed transaction to SASEUL.
+
+- Query Parameters
+
+| Field  | Type  | Description  | Default Value |
+| ----------- | ------ | --------------- | ------------- |
+| transaction | string | signed transaction |  |
+| thash  | string | transaction hash  |  |
+| publicKey  | string | public key  |  |
+| signature  | string | signed data  |  |
+
+- Response
+
+| Field  | Type  | Description  | Default Value |
+| ------ | ------ | ----------------------- | ------------- |
+| result | string | signed transaction transfer result |  |
+| status | bool  | request status  |  |
 
 ------
 
-### 
+###
