@@ -457,9 +457,13 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
         - Query Parameters
 
+<<<<<<< HEAD
           | Field           | Type   | Description           | Default Value |
                 | --------------- | ------ | --------------------- | ------------- |
           | contractAddress | string | ERC-721 contract address |               |
+=======
+ - **API 문서:** https://docs.saseul.com
+>>>>>>> parent of 5ccd556 (Update ReadMe.md)
 
         - Response
 
