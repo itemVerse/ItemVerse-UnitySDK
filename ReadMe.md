@@ -551,7 +551,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
   - **example:** Script/ItemNetExample.cs
 
-  - **API document:** https://docs.saseul.com
+  - **API document:** https://docs.itemverse.io
 
   - **<u>note:</u>** Except for the APIs below, APIs such as CreateNFT have been added temporarily. The temporary API is subject to change with future updates. Please refer to the API documentation for details.
 
