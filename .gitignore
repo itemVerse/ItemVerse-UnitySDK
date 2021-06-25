@@ -33,3 +33,5 @@ sysinfo.txt
 *.unitypackage
 
 crashlytics-build.properties
+
+*.idea
