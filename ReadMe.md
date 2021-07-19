@@ -304,7 +304,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
         | Field  | Type  | Description  | Default Value |
         | ------ | ------ | --------------------- | ------------- |
-        | result | string | RC-20 token balance |  |
+        | result | string | ERC-20 token balance |  |
         | status | bool  | request status  |  |
 
     - **ERC20_Name**
