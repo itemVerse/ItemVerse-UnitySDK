@@ -59,7 +59,7 @@
 
        <img src="https://user-images.githubusercontent.com/49587288/122644965-c22a2f00-d152-11eb-87a4-421d16ede7cf.png"/>
 
-       위에 이미지와 같이 Hierarchy 뷰에서 "IEthereumStatus" 오브젝트를 선택하면 Inspector 뷰에 이더리움 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "IEthereumStatus" 오브젝트를 선택하면 Inspector 뷰에 "IEthereumStatus" 스크립트 컴포넌트에서 이더리움 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
 
        **옵션**
 
@@ -73,7 +73,7 @@
 
        ![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
 
-       위에 이미지와 같이 Hierarchy 뷰에서 "IEthereumExample" 오브젝트를 선택하면 Inspector 뷰에 이더리움 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "IEthereumExample" 오브젝트를 선택하면 Inspector 뷰에 "IEthereumExample" 스크립트 컴포넌트에서 이더리움 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
 
        **옵션**
 
@@ -92,7 +92,7 @@
 
        ![스크린샷 2021-06-19 오후 9.29.23](https://user-images.githubusercontent.com/49587288/122645014-f998db80-d152-11eb-9b64-a80952f6fbd7.png)
 
-       위에 이미지와 같이 Hierarchy 뷰에서 "ItemNetStatus" 오브젝트를 선택하면 Inspector 뷰에 사슬 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "ItemNetStatus" 오브젝트를 선택하면 Inspector 뷰에 "ItemNetStatus" 스크립트 컴포넌트에서 사슬 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
 
        **옵션**
 
@@ -107,7 +107,7 @@
 
        ![스크린샷 2021-06-19 오후 9.29.29](https://user-images.githubusercontent.com/49587288/122645035-1a613100-d153-11eb-9821-c653e78b455e.png)
 
-       위에 이미지와 같이 Hierarchy 뷰에서 "ItemNetExample" 오브젝트를 선택하면 Inspector 뷰에 사슬 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 옵션을 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "ItemNetExample" 오브젝트를 선택하면 Inspector 뷰에 "ItemNetExample" 스크립트 컴포넌트에서 사슬 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 옵션을 설정해주세요.
 
        **옵션**
 
