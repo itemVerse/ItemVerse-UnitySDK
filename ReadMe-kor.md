@@ -2,7 +2,7 @@
 
 ### SDK 소개
 
-블록체인 게임개발을 위한 통합 블록체인 SDK입니다. 게임 내 재화 관리, 게임 아이템 및 유저의 정보 저장 등 게임에 사용되는 모든 데이터를 블록체인으로 안전하게 관리할 수 있습니다. 이더리움 및 사슬 블록체인을 지원합니다.
+블록체인 게임개발을 위한 통합 블록체인 유니티 SDK입니다. 게임 내 재화 관리, 게임 아이템 및 유저의 정보 저장 등 게임에 사용되는 모든 데이터를 블록체인으로 안전하게 관리할 수 있습니다. 이더리움 및 사슬 블록체인을 지원합니다.
 
 #### Ethereum
 
@@ -52,14 +52,14 @@
    
 3. Scenes 폴더에서 "Demo" Scene을 열어줍니다.
 
-4. ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample 오브젝트의 Inspector 뷰에서 네트워크 및 테스트 데이터 설정을 할 수 있습니다.
+4. Hierarchy 뷰의 ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample 오브젝트를 선택하면 나오는 Inspector 뷰에서 각 네트워크 및 테스트 데이터 설정을 할 수 있습니다.
 
    - 이더리움 설정
      - 이더리움 네트워크 설정
 
        <img src="https://user-images.githubusercontent.com/49587288/122644965-c22a2f00-d152-11eb-87a4-421d16ede7cf.png"/>
 
-       위에 이미지와 같이 "IEthereumStatus" 오브젝트를 선택하면 Inspector 뷰에 이더리움 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "IEthereumStatus" 오브젝트를 선택하면 Inspector 뷰에 이더리움 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
 
        **옵션**
 
@@ -73,16 +73,16 @@
 
        ![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
 
-       위에 이미지와 같이 "IEthereumExample" 오브젝트를 선택하면 Inspector 뷰에 이더리움 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "IEthereumExample" 오브젝트를 선택하면 Inspector 뷰에 이더리움 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
 
        **옵션**
 
        - PrivateKey: 내 이더리움 계정의 개인키입니다.
        - Address: 내 이더리움 계정의 주소입니다.
        - To Address: 상대 이더리움 계정의 주소입니다.
-       - Token Amount: ERC-20 토큰의 송금 양입니다.
-       - ERC721 Token Id: ERC-721 토큰 ID 입니다.
-       - ERC721 Token Index: 조회할 내 ERC-721 토큰의 인덱스입니다.
+       - Token Amount: ERC-20 토큰 송금 테스트에 적용되는 ERC-20 토큰의 송금 양입니다.
+       - ERC721 Token Id: ERC-721 토큰 정보조회 및 전송 테스트등에 적용되는 ERC-721 토큰 ID 입니다.
+       - ERC721 Token Index: ERC-721 토큰 정보조회 테스트 등에 적용되는 ERC-721 토큰의 인덱스입니다.
        - Block Number: 조회할 블럭의 넘버입니다.
        - Transaction Hash: 조회할 트랜잭션의 hash입니다.
        - ERC20 ContractAddress: ERC-20 토큰의 컨트랙트 어드레스입니다.
@@ -92,7 +92,7 @@
 
        ![스크린샷 2021-06-19 오후 9.29.23](https://user-images.githubusercontent.com/49587288/122645014-f998db80-d152-11eb-9b64-a80952f6fbd7.png)
 
-       위에 이미지와 같이 "ItemNetStatus" 오브젝트를 선택하면 Inspector 뷰에 사슬 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "ItemNetStatus" 오브젝트를 선택하면 Inspector 뷰에 사슬 네트워크 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 설정해주세요.
 
        **옵션**
 
@@ -107,7 +107,7 @@
 
        ![스크린샷 2021-06-19 오후 9.29.29](https://user-images.githubusercontent.com/49587288/122645035-1a613100-d153-11eb-9821-c653e78b455e.png)
 
-       위에 이미지와 같이 "ItemNetExample" 오브젝트를 선택하면 Inspector 뷰에 사슬 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 옵션을 설정해주세요.
+       위에 이미지와 같이 Hierarchy 뷰에서 "ItemNetExample" 오브젝트를 선택하면 Inspector 뷰에 사슬 테스트 데이터 설정값이 나옵니다. 아래의 옵션 설명을 참고하여 옵션을 설정해주세요.
 
        **옵션**
 
@@ -152,7 +152,7 @@
 
 #### 이더리움
 
-- **예제:**  Script/IEthereumExample.cs
+- **예제:**  ItemverseSDK/Demo/Script/IEthereumExample.cs
 
 - **이더리움**
 
@@ -245,25 +245,6 @@
       | result | string | 트랜잭션 영수증 데이터 |               |
       | status | bool   | 요청 성공 여부         |               |
 
-  - **SendRawTransaction**
-
-    - Description
-
-      사인된 트랜잭션을 이더리움 네트워크에 전송합니다.
-
-    - Query Parameters
-
-      | Field             | Type   | Description            | Default Value |
-      | ----------------- | ------ | ---------------------- | ------------- |
-      | signedTrasnaction | string | 사인된 트랜잭션 데이터 |               |
-
-    - Response
-
-      | Field  | Type   | Description        | Default Value |
-      | ------ | ------ | ------------------ | ------------- |
-      | result | string | 트랜잭션 전송 결과 |               |
-      | status | bool   | 요청 성공 여부     |               |
-
   - **Transfer**
 
     - Description
@@ -303,7 +284,7 @@
   
       | Field  | Type   | Description           | Default Value |
       | ------ | ------ | --------------------- | ------------- |
-      | result | string | 계정 ERC-20 토큰 잔고 |               |
+      | result | string | ERC-20 토큰 잔고 |               |
       | status | bool   | 요청 성공 여부        |               |
   
   - **ERC20_Name**
@@ -373,7 +354,7 @@
   
       | Field           | Type       | Description          | Default Value |
       | --------------- | ---------- | -------------------- | ------------- |
-      | privateKey      | string     | 계정 개인키          |               |
+      | privateKey      | string     | 발신자 개인키          |               |
       | toAddress       | string     | 수신자 주소          |               |
       | tokenAmount     | BigInteger | ERC-20 토큰 송금양   |               |
       | contractAddress | string     | ERC-20 컨트랙트 주소 |               |
@@ -469,7 +450,7 @@
   
     - Description
   
-      계정 주소의 ERC-721 토큰 인덱스로 ERC-721 토큰 Id를 확인합니다.
+      ERC-721 토큰 인덱스로 ERC-721 토큰 Id를 확인합니다.
   
     - Query Parameters
   
@@ -490,7 +471,7 @@
   
     - Description
   
-      계정 주소의 ERC-721 토큰 인덱스로 ERC-721 토큰 Id를 확인합니다.
+      ERC-721 토큰 ID로 ERC-721 토큰 메타데이터 URI를 확인합니다.
   
     - Query Parameters
   
@@ -503,7 +484,7 @@
   
       | Field  | Type   | Description     | Default Value |
       | ------ | ------ | --------------- | ------------- |
-      | result | string | ERC-721 토큰 Id |               |
+      | result | string | ERC-721 토큰 메타데이터 URI |               |
       | status | bool   | 요청 성공 여부  |               |
   
   - **ERC721_TotalSupply**
@@ -535,7 +516,7 @@
   
       | Field           | Type       | Description           | Default Value |
       | --------------- | ---------- | --------------------- | ------------- |
-      | privateKey      | string     | 계정 개인키           |               |
+      | privateKey      | string     | 발신자 개인키           |               |
       | toAddress       | string     | 수신자 주소           |               |
       | tokenId         | BigInteger | ERC-721 토큰 ID       |               |
       | contractAddress | string     | ERC-721 컨트랙트 주소 |               |
@@ -549,7 +530,7 @@
 
 #### 사슬
 
- - **예제:** Script/ItemNetExample.cs
+ - **예제:** ItemverseSDK/Demo/Script/ItemNetExample.cs
 
  - **API 문서:** https://docs.itemverse.io
 
@@ -605,15 +586,15 @@
      | Field       | Type   | Description     | Default Value |
      | ----------- | ------ | --------------- | ------------- |
      | transaction | string | 사인된 트랜잭션 |               |
-     | thash       | string | 트랜잭션 해쉬   |               |
-     | publicKey   | string | 공유키          |               |
+     | thash       | string | 사인된 트랜잭션의 해쉬   |               |
+     | publicKey   | string | 계정 공유키          |               |
      | signature   | string | 사인 데이터     |               |
 
    - Response
 
      | Field  | Type   | Description             | Default Value |
      | ------ | ------ | ----------------------- | ------------- |
-     | result | string | 사인 트랜잭션 전송 결과 |               |
+     | result | string | 트랜잭션 전송 결과 |               |
      | status | bool   | 요청 성공 여부          |               |
 
 ------
