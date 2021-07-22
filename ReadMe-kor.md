@@ -185,13 +185,13 @@
 
     - Description
 
-      블럭 넘버로 블럭 데이터를 가져옵니다.
+      인덱스로 블럭 데이터를 가져옵니다.
 
     - Query Parameters
 
       | Field       | Type          | Description | Default Value |
       | ----------- | ------------- | ----------- | ------------- |
-      | blockNumber | HexBigInteger | 블럭 넘버   |               |
+      | blockNumber | HexBigInteger | 블럭 인덱스   |               |
 
     - Response
 
@@ -263,7 +263,7 @@
       | ---------- | ------- | ----------- | ------------- |
       | privateKey | string  | 계정 개인키 |               |
       | toAddress  | string  | 수신자 주소 |               |
-      | amount     | decimal | 송금양      |               |
+      | amount     | decimal | 이더리움 송금양(eth 단위)      |               |
 
     - Response
 
@@ -271,6 +271,7 @@
       | ------ | ------ | -------------- | ------------- |
       | result | string | 송금 결과      |               |
       | status | bool   | 요청 성공 여부 |               |
+      
 - **ERC20**
   
   - **ERC20_GetBalance**
@@ -384,7 +385,7 @@
   
       | Field           | Type   | Description           | Default Value |
       | --------------- | ------ | --------------------- | ------------- |
-      | address         | string | 게정 주소             |               |
+      | address         | string | 계정 주소             |               |
       | contractAddress | string | ERC-721 컨트랙트 주소 |               |
   
     - Response
@@ -456,7 +457,7 @@
   
     - Description
   
-      ERC-721 토큰 인덱스로 ERC-721 토큰 Id를 확인합니다.
+      인덱스로 소유자가 소유한 ERC-721 토큰 Id를 확인합니다.
   
     - Query Parameters
   
@@ -477,7 +478,7 @@
   
     - Description
   
-      ERC-721 토큰 ID로 ERC-721 토큰 메타데이터 URI를 확인합니다.
+      ERC-721 토큰 ID로 ERC-721 토큰의 메타데이터 URI를 확인합니다.
   
     - Query Parameters
   
