@@ -134,13 +134,17 @@
 
    ![스크린샷 2021-06-19 오후 9.58.01](https://user-images.githubusercontent.com/49587288/122645058-3a90f000-d153-11eb-8717-1ecdb239ecfa.png)
 
-7. 이더리움 테스트에 유용한 사이트입니다.
+7. 새 프로젝트에서 ItemNet Unity SDK를 적용할때는 ItemverseSDK/Prefab 경로의 "IEthereumStatus", "ItemNetStatus" Prefab을 새 프로젝트에 추가하고 Demo에 IEthereumExample.cs, ItemNetExample.cs를 참고해서 각 네트워크의 API들을 사용하시면됩니다.
+
+   ![스크린샷 2021-07-22 오후 3 09 06](https://user-images.githubusercontent.com/49587288/126596533-a1fbd286-b456-457c-a0a7-b85c2d7760b3.png)
+
+8. 이더리움 테스트에 유용한 사이트입니다.
    1. 테스트 이더리움 발급: https://faucet.ropsten.be/
    2. 테스트 이더리움 토큰 발급(ERC-721): https://af.faucet.api.itemverse.io/fauceterc721.html
    3. 테스트 이더리움 토큰 발급(ERC-20) : https://erc20faucet.com/
    4. 테스트 이더리움 익스플로러: https://ropsten.etherscan.io/
 
-8. 사슬 테스트에 유용한 사이트입니다.
+9. 사슬 테스트에 유용한 사이트입니다.
    1. 사슬 익스플로러: https://explorer.itemverse.io/
    2. 사슬 공식 사이트: https://saseul.com/#/
    3. 개발사 사이트: https://artifriends.com/
