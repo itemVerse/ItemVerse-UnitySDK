@@ -543,7 +543,7 @@
 
  - **API 문서:** https://docs.itemverse.io
 
- - **<u>주의:</u>** 아래의 API를 제외한 ItemverseSDK/Script/ItemNet/API/ExampleAPI 폴더 안에 API 스크립트들은 임시로 추가된 API입니다. 임시 API는 차후 업데이트에 따라 변경이 될 수 있습니다. 위에 API 문서를 확인하고 추가 또는 변경하고자 하는 API가 있으면 API 문서에 설명된 요청 형식과 ExampleAPI 폴더안에 API 스크립트, ItemNetExample 스크립트를 참고하여 작성하시면됩니다.
+ - **<u>주의:</u>** 아래의 API를 제외한 ItemverseSDK/Script/ItemNet/API/ExampleAPI 폴더 안에 API 스크립트들은 임시로 추가된 API입니다. 임시 API는 차후 업데이트에 따라 변경이 될 수 있습니다.
 
  - **SendRequest**
 
