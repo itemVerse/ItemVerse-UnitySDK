@@ -152,6 +152,8 @@
 
 #### 이더리움
 
+- **API:**  ItemverseSDK/Script/IEthereum/API/*
+
 - **예제:**  ItemverseSDK/Demo/Script/IEthereumExample.cs
 
 - **이더리움**
@@ -529,6 +531,8 @@
       | status | bool   | 요청 성공 여부         |               |
 
 #### 사슬
+
+ - **API:** ItemverseSDK/Script/ItemNet/API/*
 
  - **예제:** ItemverseSDK/Demo/Script/ItemNetExample.cs
 
