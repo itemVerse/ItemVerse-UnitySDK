@@ -10,7 +10,6 @@ namespace ITEM_NET
         public GetLatestBlockNumber GetLatestBlockNumber = GetLatestBlockNumber.Instance;
         public GetTransactionByHash GetTransactionByHash = GetTransactionByHash.Instance;
         public GetTransactionReceipt GetTransactionReceipt = GetTransactionReceipt.Instance;
-        public SendRawTransaction SendRawTransaction = SendRawTransaction.Instance;
         public Transfer Transfer = Transfer.Instance;
 
         // ERC20 API

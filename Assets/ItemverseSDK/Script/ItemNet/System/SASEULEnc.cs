@@ -67,13 +67,6 @@ public static class SASEULEnc
         return ByteToHex(signature);
     }
 
-    /*
-    public static bool ValidSignature(string target, string puk, string signature)
-    {
-        return Ed25519.CheckValid(HexToByte(signature), Encoding.Default.GetBytes(target), HexToByte(puk));
-    }
-    */
-
     public static string Ripemd160(string target)
     {
         RIPEMD160Managed crypt = new RIPEMD160Managed();

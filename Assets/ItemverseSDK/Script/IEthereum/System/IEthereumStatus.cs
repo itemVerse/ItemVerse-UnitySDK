@@ -9,26 +9,17 @@ using Nethereum.Web3;
 
 public class IEthereumStatus : MonoBehaviour
 {
-    private static IEthereumStatus _instance = null;
-    public static IEthereumStatus Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = GameObject.Find("IEthereumStatus").GetComponent<IEthereumStatus>();
-            }
-
-            return _instance;
-        }
-    }
+    public static IEthereumStatus Instance;
 
     private bool TrustCertificate(object sender, X509Certificate x509Certificate, X509Chain x509Chain, SslPolicyErrors sslPolicyErrors)
     {
         return true;
     }
+
     private void Awake()
     {
+        Instance = gameObject.GetComponent<IEthereumStatus>();
+
         ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
         ServicePointManager.ServerCertificateValidationCallback = TrustCertificate;
         IEthereumUtil.Instance.SetNetwork(IEthereumStatus.Instance.netType);

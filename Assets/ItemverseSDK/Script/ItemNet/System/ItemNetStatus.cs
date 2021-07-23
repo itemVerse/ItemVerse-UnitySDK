@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class ItemNetStatus : MonoBehaviour
 {
-    private static ItemNetStatus _instance = null;
-    public static ItemNetStatus Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = GameObject.Find("ItemNetStatus").GetComponent<ItemNetStatus>();
-            }
-
-            return _instance;
-        }
-    }
+    public static ItemNetStatus Instance;
 
     private void Awake()
     {
+        Instance = gameObject.GetComponent<ItemNetStatus>();
+
         SaseulUtil.Instance.SetNetwork(ItemNetStatus.Instance.netType);
     }
 

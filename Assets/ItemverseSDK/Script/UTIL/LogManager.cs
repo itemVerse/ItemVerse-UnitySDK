@@ -52,7 +52,7 @@ public class LogManager : MonoBehaviour
     public void ResultCopy()
     {
         TextEditor te = new TextEditor();
-        te.content = new GUIContent(saveResult);
+        te.text = saveResult;
         te.OnFocus();
         te.Copy();
     }

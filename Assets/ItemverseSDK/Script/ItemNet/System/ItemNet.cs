@@ -10,7 +10,6 @@ namespace ITEM_NET
         public ListNFT ListNFT = ListNFT.Instance;
         public NFTCount NFTCount = NFTCount.Instance;
         public CreateNFT CreateNFT = CreateNFT.Instance;
-        public CreateNFTC CreateNFTC = CreateNFTC.Instance;
         public FaucetNFTC FaucetNFTC = FaucetNFTC.Instance;
 
         // SASEUL API

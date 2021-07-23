@@ -171,12 +171,4 @@ public class ItemNetExample : MonoBehaviour
             logManager.SaseulResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
         });
     }
-
-    public void Example_CreateNFTC()
-    {
-        Debug.Log("Loading...");
-        itemNet.CreateNFTC.Call(privateKey).ContinueWith(task => {
-            logManager.SaseulResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
-        });
-    }
 }
