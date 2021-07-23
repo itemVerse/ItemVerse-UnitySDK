@@ -205,13 +205,13 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
     - Description
 
-      Get the latest block number in the Ethereum network.
+      Get the total number of blocks stacked on the Ethereum network
 
     - Response
 
       | Field  | Type  | Description  | Default Value |
       | ------ | ------ | -------------- | ------------- |
-      | result | string | the latest block number  |  |
+      | result | string | total number of blocks  |  |
       | status | bool  | request status |  |
 
   - **GetTransactionByHash**
