@@ -80,7 +80,7 @@
        - PrivateKey: 내 이더리움 계정의 개인키입니다.
        - Address: 내 이더리움 계정의 주소입니다.
        - To Address: 상대 이더리움 계정의 주소입니다.
-       - Token Amount: ERC-20 토큰 송금 테스트에 적용되는 ERC-20 토큰의 송금 양입니다.
+       - Token Amount: ERC-20 토큰 송금 테스트에 적용되는 ERC-20 토큰의 송금량입니다.
        - ERC721 Token Id: ERC-721 토큰 정보조회 및 전송 테스트등에 적용되는 ERC-721 토큰 ID 입니다.
        - ERC721 Token Index: ERC-721 토큰 정보조회 테스트 등에 적용되는 ERC-721 토큰의 인덱스입니다.
        - Block Number: 조회할 블럭의 넘버입니다.
@@ -263,7 +263,7 @@
       | ---------- | ------- | ----------- | ------------- |
       | privateKey | string  | 계정 개인키 |               |
       | toAddress  | string  | 수신자 주소 |               |
-      | amount     | decimal | 이더리움 송금양(eth 단위)      |               |
+      | amount     | decimal | 이더리움 송금량(eth 단위)      |               |
 
     - Response
 
@@ -363,7 +363,7 @@
       | --------------- | ---------- | -------------------- | ------------- |
       | privateKey      | string     | 발신자 개인키          |               |
       | toAddress       | string     | 수신자 주소          |               |
-      | tokenAmount     | BigInteger | ERC-20 토큰 송금양   |               |
+      | tokenAmount     | BigInteger | ERC-20 토큰 송금량   |               |
       | contractAddress | string     | ERC-20 컨트랙트 주소 |               |
   
     - Response
