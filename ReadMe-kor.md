@@ -50,7 +50,7 @@
    
      <img src="https://user-images.githubusercontent.com/49587288/122674994-7b037300-d212-11eb-8dd0-c88775f9107a.png"/>
    
-3. Scenes 폴더에서 "Demo" Scene을 열어줍니다.
+3. "Demo" Scene을 열어줍니다.
 
 4. Hierarchy 뷰의 ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample 오브젝트를 선택하면 나오는 Inspector 뷰에서 각 네트워크 및 테스트 데이터 설정을 할 수 있습니다.
 
