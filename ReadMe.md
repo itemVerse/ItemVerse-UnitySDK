@@ -2,7 +2,7 @@
 
 ### Introduction
 
-This is an integrated blockchain SDK for blockchain game development. All data used in the game, such as in-game asset management, game items and user information storage, can be safely managed with blockchain. Supports Ethereum and SASEUL blockchain.
+This is an integrated blockchain Unity SDK for blockchain game development. All data used in the game, such as in-game asset management, game items and user information storage, can be safely managed with blockchain. Supports Ethereum and SASEUL blockchain.
 
 #### Ethereum
 
@@ -50,16 +50,17 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
       <img src="https://user-images.githubusercontent.com/49587288/122674994-7b037300-d212-11eb-8dd0-c88775f9107a.png"/>
 
-3. Open the "Demo" scene in the Scenes folder.
+3. Open the "Demo" scene.
 
-4. You can set network and test data in the Inspector view of ItemNetStatus, ItemNetExample, IEthereum Status, and Ethereum Example objects.
+4. If you select ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample objects in the Hierarchy view, you will see inspector view on the right side. On the script components in the inspector view, you can set each network and test data.
+
 
     - Ethereum configuration
       - Ethereum network configuration
 
         <img src="https://user-images.githubusercontent.com/49587288/122644965-c22a2f00-d152-11eb-87a4-421d16ede7cf.png"/>
 
-        As shown in the image above, if you select the "IEthereumStatus" object, the Ethereum network settings are displayed in the Inspector view. Please set it by referring to the option description below.
+        As shown in the image above, if you select the "IEthereumStatus" object in the Hierarchy view, the Ethereum network settings are displayed in the "IEthereumStatus" script component in the Inspector view. Please set it by referring to the option description below.
 
         **options**
 
@@ -73,16 +74,16 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
         ![스크린샷 2021-06-19 오후 8.14.03](https://user-images.githubusercontent.com/49587288/122644978-d3733b80-d152-11eb-80e0-1eaeee18d347.png)
 
-        As shown in the image above, if you select the "IEthereumExample" object, the Ethereum test data settings are displayed in the Inspector view. Please set it by referring to the options description below.
+        As shown in the image above, if you select the "IEthereumExample" object in the Hierarchy view, the Ethereum test data settings are displayed in the "IEthereumExample" script component in the Inspector view. Please set it by referring to the options description below.
 
         **options**
 
         - PrivateKey: Private key of Ethereum account.
         - Address: Address of Ethereum account.
         - To Address: Address of the counterpart Ethereum account.
-        - Token Amount: Amount of ERC-20 tokens to send.
-        - ERC721 Token Id: ERC721 token ID.
-        - ERC721 Token Index: Index of ERC-721 token to inquire.
+        - Token Amount: Amount of ERC-20 tokens to send for ERC-20 token transfer test.
+        - ERC721 Token Id: ERC721 token ID for token information inquiry and token transfer, etc.
+        - ERC721 Token Index: Index of ERC-721 token to inquire for token information inquiry, etc.
         - Block Number: Number of the block to inquire.
         - Transaction Hash: Transaction hash to inquire.
         - ERC20 ContractAddress: Contract address of the ERC-20 token.
@@ -92,7 +93,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
         ![스크린샷 2021-06-19 오후 9.29.23](https://user-images.githubusercontent.com/49587288/122645014-f998db80-d152-11eb-9b64-a80952f6fbd7.png)
 
-        As shown in the image above, if you select the "ItemNetStatus" object, you will see the SASEUL network settings in the Inspector view. Please set it by referring to the options description below.
+        As shown in the image above, if you select the "ItemNetStatus" object in the Hierarchy view, you will see the SASEUL network settings in the "ItemNetStatus" script component in the Inspector view. Please set it by referring to the options description below.
 
         **options**
 
@@ -107,7 +108,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
         ![스크린샷 2021-06-19 오후 9.29.29](https://user-images.githubusercontent.com/49587288/122645035-1a613100-d153-11eb-9821-c653e78b455e.png)
 
-        As shown in the image above, when the "ItemNetExample" object is selected, the SASEUL test data settings appear in the Inspector view. Please set the options by referring to the option descriptions below.
+        As shown in the image above, when the "ItemNetExample" object in the Hierarchy view is selected, the SASEUL test data settings appear in the "ItemNetExample" script component in the Inspector view. Please set the options by referring to the option descriptions below.
 
         **options**
 
@@ -133,14 +134,18 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 6. Test the Ethereum and SASEUL blockchain functions by clicking the buttons. You can change the blockchain to be tested by pressing the Change button and copy the entire result by pressing the Copy button.
 
     ![스크린샷 2021-06-19 오후 9.58.01](https://user-images.githubusercontent.com/49587288/122645058-3a90f000-d153-11eb-8717-1ecdb239ecfa.png)
+    
+7. When applying ItemNet Unity SDK in a new project, add "IEthereumStatus", "ItemNetStatus" Prefabs in the ItemverseSDK/Prefab path to the new project, and refer to IEthereumExample.cs and ItemNetExample.cs in the demo to use the APIs of each network.
 
-7. Useful sites for Ethereum test.
+    ![스크린샷 2021-07-22 오후 3 09 06](https://user-images.githubusercontent.com/49587288/126596533-a1fbd286-b456-457c-a0a7-b85c2d7760b3.png)
+
+8. Useful sites for Ethereum test.
     1. Issuance of test Ethereum: https://faucet.ropsten.be/
     2. Issuance of test Ethereum tokens(ERC-721) : https://af.faucet.api.itemverse.io/fauceterc721.html
     3. Issuance of test Ethereum tokens(ERC-20) :  https://erc20faucet.com/
     4. Test Ethereum Explorer: https://ropsten.etherscan.io/
 
-8. Useful sites for SASEUL test.
+9. Useful sites for SASEUL test.
     1. SASEUL Explorer: https://explorer.itemverse.io/
     2. SASEUL official site: https://saseul.com/#/
     3. Developer site: https://artifriends.com/
@@ -152,9 +157,9 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
 #### Ethereum
 
-- **API:**  ItemverseSDK/Script/IEthereum/API/*
+- **API:** ItemverseSDK/Script/IEthereum/API/*
   
-- **example:**  Script/IEthereumExample.cs
+- **example:** ItemverseSDK/Demo/Script/IEthereumExample.cs
 
 - **Ethereum**
 
@@ -181,13 +186,13 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
     - Description
 
-      Get block data by block number.
+      Get block data by block index.
 
     - Query Parameters
 
       | Field  | Type  | Description | Default Value |
       | ----------- | ------------- | ----------- | ------------- |
-      | blockNumber | HexBigInteger | block number  |  |
+      | blockNumber | HexBigInteger | block index  |  |
 
     - Response
 
@@ -247,25 +252,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
       | result | string | transaction receipt data |  |
       | status | bool  | request status  |  |
 
-  - **SendRawTransaction**
-
-    - Description
-
-      Send a signed transaction to the Ethereum network.
-
-    - Query Parameters
-
-      | Field  | Type  | Description  | Default Value |
-      | ----------------- | ------ | ---------------------- | ------------- |
-      | signedTrasnaction | string | signed transaction data |  |
-
-    - Response
-
-      | Field  | Type  | Description  | Default Value |
-      | ------ | ------ | ------------------ | ------------- |
-      | result | string | Transaction transfer result |  |
-      | status | bool  | request status  |  |
-
+  
   - **Transfer**
 
     - Description
@@ -278,7 +265,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
       | ---------- | ------- | ----------- | ------------- |
       | privateKey | string  | account private key |  |
       | toAddress  | string  | recipient address |  |
-      | amount  | decimal | amount  |  |
+      | amount  | decimal | amount(eth unit)  |  |
 
     - Response
 
@@ -376,7 +363,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
       | Field  | Type  | Description  | Default Value |
       | --------------- | ---------- | -------------------- | ------------- |
-      | privateKey  | string  | account private key  |  |
+      | privateKey  | string  | private key of the sender account  |  |
       | toAddress  | string  | recipient address  |  |
       | tokenAmount  | BigInteger | ERC-20 token amount  |  |
       | contractAddress | string  | ERC-20 contract address |  |
@@ -472,7 +459,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
     - Description
 
-      Inquire the ERC-721 token Id from the ERC-721 token index of the account address.
+      Inquire the ERC-721 token Id owned by the account from the index.
 
     - Query Parameters
 
@@ -493,7 +480,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
     - Description
 
-      Inquire the ERC-721 token URI from the ERC-721 token index of the account address.
+      Inquire the ERC-721 metadata URI of the token from the ERC-721 token ID.
 
     - Query Parameters
 
@@ -506,7 +493,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
       | Field  | Type  | Description  | Default Value |
       | ------ | ------ | --------------- | ------------- |
-      | result | string | ERC-721 token Id |  |
+      | result | string | ERC-721 token metadata URI |  |
       | status | bool  | request status  |  |
 
   - **ERC721_TotalSupply**
@@ -538,7 +525,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
       | Field  | Type  | Description  | Default Value |
       | --------------- | ---------- | --------------------- | ------------- |
-      | privateKey  | string  | account private key  |  |
+      | privateKey  | string  | private key of the sending account  |  |
       | toAddress  | string  | recipient address  |  |
       | tokenId  | BigInteger | ERC-721 token id  |  |
       | contractAddress | string  | ERC-721 contract address |  |
@@ -552,11 +539,13 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
 #### SASEUL
 
-  - **example:** Script/ItemNetExample.cs
+  - **API:** ItemverseSDK/Script/ItemNet/API/*
+
+  - **example:** ItemverseSDK/Demo/Script/ItemNetExample.cs
 
   - **API document:** https://docs.itemverse.io
 
-  - **<u>note:</u>** Except for the APIs below, APIs such as CreateNFT have been added temporarily. The temporary API is subject to change with future updates. Please refer to the API documentation for details.
+  - **<u>note:</u>** Except for the APIs below, APIs such as CreateNFT have been added temporarily. The temporary API is subject to change with future updates.
 
   - **SendRequest**
 
@@ -608,15 +597,15 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
       | Field  | Type  | Description  | Default Value |
       | ----------- | ------ | --------------- | ------------- |
       | transaction | string | signed transaction |  |
-      | thash  | string | transaction hash  |  |
-      | publicKey  | string | public key  |  |
+      | thash  | string | signed transaction hash  |  |
+      | publicKey  | string | public key of the account  |  |
       | signature  | string | signed data  |  |
 
     - Response
 
       | Field  | Type  | Description  | Default Value |
       | ------ | ------ | ----------------------- | ------------- |
-      | result | string | signed transaction transfer result |  |
+      | result | string | transaction transfer result |  |
       | status | bool  | request status  |  |
 
 ------
