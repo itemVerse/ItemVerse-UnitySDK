@@ -152,6 +152,8 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
 #### Ethereum
 
+- **API:**  ItemverseSDK/Script/IEthereum/API/*
+  
 - **example:**  Script/IEthereumExample.cs
 
 - **Ethereum**
@@ -198,13 +200,13 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
     - Description
 
-      Get the number of blocks in the Ethereum network.
+      Get the latest block number in the Ethereum network.
 
     - Response
 
       | Field  | Type  | Description  | Default Value |
       | ------ | ------ | -------------- | ------------- |
-      | result | string | number of blocks  |  |
+      | result | string | the latest block number  |  |
       | status | bool  | request status |  |
 
   - **GetTransactionByHash**
@@ -230,7 +232,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
     - Description
 
-      Get transaction receipt data from transaction hash.
+      Get the transaction receipt data from the transaction hash.
 
     - Query Parameters
 

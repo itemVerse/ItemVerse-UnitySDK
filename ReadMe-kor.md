@@ -204,13 +204,13 @@
 
     - Description
 
-      이더리움 네트워크의 블럭 개수를 가져옵니다.
+      이더리움 네트워크의 총 블럭 개수를 가져옵니다.
 
     - Response
 
       | Field  | Type   | Description    | Default Value |
       | ------ | ------ | -------------- | ------------- |
-      | result | string | 블럭 개수      |               |
+      | result | string | 총 블럭 개수      |               |
       | status | bool   | 요청 성공 여부 |               |
 
   - **GetTransactionByHash**
