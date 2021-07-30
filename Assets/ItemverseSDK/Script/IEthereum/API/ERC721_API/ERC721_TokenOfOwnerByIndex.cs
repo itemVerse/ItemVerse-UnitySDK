@@ -2,6 +2,8 @@
 using System.Numerics;
 using System.Threading.Tasks;
 
+using UnityEngine;
+
 using Nethereum.ABI.FunctionEncoding.Attributes;
 using Nethereum.Contracts;
 

@@ -23,7 +23,7 @@ public class SaseulApi
 
         await www.SendWebRequest();
 
-        if (www.isNetworkError || www.isHttpError)
+        if (www.error != null)
         {
             result = www.downloadHandler.text.ToString();
             status = false;

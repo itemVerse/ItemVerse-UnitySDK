@@ -18,6 +18,7 @@ public class IEthereumExample : MonoBehaviour
 
     public string privateKey = "a6f5919db06cc6b6d3e15ced88a75f538f41f6b7a08c15fcdbbdd707b526a358";
     public string address = "0x287DB8145a10990fF6320A85fbFeCA7A44C3D562";
+    public string toPrivateKey = "74945e566f482e022cbd0afba6b4c2ae15781f3551b0966e626c16fe432ec45e";
     public string toAddress = "0xB666D5dEd9510C913a0703dDa2D4803a31f56B40";
 
     public decimal ethAmount = 0.1m;
@@ -171,13 +172,35 @@ public class IEthereumExample : MonoBehaviour
         });
     }
 
-    public void Example_ERC721_TokenOfOwnerByIndex()
+    public async void Example_ERC721_TokenOfOwnerByIndex()
     {
         Debug.Log("Loading...");
-        ieth.ERC721_TokenOfOwnerByIndex.Call(address, erc721TokenIndex, erc721ContractAddress).ContinueWith(task =>
+
+        // Determine who owns the ERC-721 token
+        var resultOwnerOf = await ieth.ERC721_OwnerOf.Call(erc721TokenID, erc721ContractAddress);
+        string ownerAddress = resultOwnerOf.Item1;
+
+        // If the ERC-721 token does not exist in the user
+        if (ownerAddress != address)
         {
-            logManager.ResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
-        });
+            // ERC-721 Token Return
+            await ieth.ERC721_Transfer.Call(toPrivateKey, address, erc721TokenID, erc721ContractAddress);
+
+            // Wait to receive ERC-721 Token
+            while (true)
+            {
+                resultOwnerOf = await ieth.ERC721_OwnerOf.Call(erc721TokenID, erc721ContractAddress);
+                ownerAddress = resultOwnerOf.Item1;
+                if (ownerAddress == address)
+                {
+                    break;
+                }
+            }
+        }
+
+        // get result of tokenOfOwnerByIndex
+        var resultTokenOfOwnerByIndex = await ieth.ERC721_TokenOfOwnerByIndex.Call(address, erc721TokenIndex, erc721ContractAddress);
+        logManager.ResultLog(MethodBase.GetCurrentMethod().Name, resultTokenOfOwnerByIndex.Item1, resultTokenOfOwnerByIndex.Item2);
     }
 
     public void Example_ERC721_Name()
@@ -225,12 +248,34 @@ public class IEthereumExample : MonoBehaviour
         });
     }
 
-    public void Example_ERC721_Transfer()
+    public async void Example_ERC721_Transfer()
     {
         Debug.Log("Loading...");
-        ieth.ERC721_Transfer.Call(privateKey, toAddress, erc721TokenID, erc721ContractAddress).ContinueWith(task =>
+
+        // Determine who owns the ERC-721 token
+        var resultOwnerOf = await ieth.ERC721_OwnerOf.Call(erc721TokenID, erc721ContractAddress);
+        string ownerAddress = resultOwnerOf.Item1;
+
+        // If the ERC-721 token does not exist in the user
+        if (ownerAddress != address)
         {
-            logManager.ResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
-        });
+            // ERC-721 Token Return
+            await ieth.ERC721_Transfer.Call(toPrivateKey, address, erc721TokenID, erc721ContractAddress);
+
+            // Wait to receive ERC-721 Token
+            while (true)
+            {
+                resultOwnerOf = await ieth.ERC721_OwnerOf.Call(erc721TokenID, erc721ContractAddress);
+                ownerAddress = resultOwnerOf.Item1;
+                if (ownerAddress == address)
+                {
+                    break;
+                }
+            }
+        }
+
+        // transfer ERC-721 token
+        var resultERC721Transfer = await ieth.ERC721_Transfer.Call(privateKey, toAddress, erc721TokenID, erc721ContractAddress);
+        logManager.ResultLog(MethodBase.GetCurrentMethod().Name, resultERC721Transfer.Item1, resultERC721Transfer.Item2);
     }
 }
