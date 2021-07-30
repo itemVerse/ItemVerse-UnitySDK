@@ -54,7 +54,6 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
 4. If you select ItemNetStatus, ItemNetExample, IEthereumStatus, IEthereumExample objects in the Hierarchy view, you will see inspector view on the right side. On the script components in the inspector view, you can set each network and test data.
 
-
     - Ethereum configuration
       - Ethereum network configuration
 
