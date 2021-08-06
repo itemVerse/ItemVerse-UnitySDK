@@ -24,8 +24,9 @@ namespace SASEULAPI
 
         private async Task Logic()
         {
-            await Task.Run(() =>
+            try
             {
+                // Process
                 NFTCountStructure structure = new NFTCountStructure();
 
                 structure.type = "NFTCount";
@@ -33,14 +34,21 @@ namespace SASEULAPI
                 string request = JsonUtility.ToJson(structure);
 
                 form.AddField("request", request);
-            });
+
+                // Return
+                result = await Send("/request");
+                status = true;
+            } catch(Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
         }
 
         public async Task<Tuple<string, bool>> Call()
         {
             Init();
             await Logic();
-            await Send("/request");
 
             return new Tuple<string, bool>(result, status);
         }

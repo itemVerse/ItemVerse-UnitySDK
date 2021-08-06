@@ -28,15 +28,18 @@ namespace IEthereumAPI
 
         private async Task Logic(BigInteger tokenId, string contractAddress)
         {
-            var abi = new TokenURIFunction()
-            {
-                TokenId = tokenId,
-            };
-
-            var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<TokenURIFunction>();
-
             try
             {
+                // check contract address
+                IEthereumUtil.Instance.CheckAddress(contractAddress);
+
+                var abi = new TokenURIFunction()
+                {
+                    TokenId = tokenId,
+                };
+
+                var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<TokenURIFunction>();
+
                 var value = await handler.QueryAsync<string>(contractAddress, abi);
 
                 result = value.ToString();

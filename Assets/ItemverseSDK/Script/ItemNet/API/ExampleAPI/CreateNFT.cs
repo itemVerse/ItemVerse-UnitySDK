@@ -30,36 +30,53 @@ namespace SASEULAPI
 
         private async Task Logic(string privateKey, string @class, string name, string thumbnail, Dictionary<string, string> metadata)
         {
-            await Task.Run(() =>
+            try
             {
-                CreateNFTStructure structure = new CreateNFTStructure();
+                // check privateKey
+                SaseulUtil.Instance.CheckPrivateKey(privateKey);
+                // check enter value
+                SaseulUtil.Instance.CheckEnterValue(@class);
+                SaseulUtil.Instance.CheckEnterValue(name);
+                SaseulUtil.Instance.CheckEnterValue(thumbnail);
 
-                string publicKey = SASEULEnc.MakePublicKey(privateKey);
-                string address = SASEULEnc.MakeAddress(publicKey);
+                // Process
+                await Task.Run(() =>
+                {
+                    string publicKey = SASEULEnc.MakePublicKey(privateKey);
+                    string address = SASEULEnc.MakeAddress(publicKey);
 
-                structure.type = "CreateNFT";
-                structure.@class = @class;
-                structure.name = name;
-                structure.thumbnail = thumbnail;
-                structure.metadata = metadata;
-                structure.timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds() * 1000;
+                    CreateNFTStructure structure = new CreateNFTStructure();
+                    structure.type = "CreateNFT";
+                    structure.@class = @class;
+                    structure.name = name;
+                    structure.thumbnail = thumbnail;
+                    structure.metadata = metadata;
+                    structure.timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds() * 1000;
 
-                string transaction = JsonConvert.SerializeObject(structure);
-                string thash = SASEULEnc.THash(transaction);
-                string signature = SASEULEnc.MakeSignature(thash, privateKey);
+                    string transaction = JsonConvert.SerializeObject(structure);
+                    string thash = SASEULEnc.THash(transaction);
+                    string signature = SASEULEnc.MakeSignature(thash, privateKey);
 
-                form.AddField("transaction", transaction);
-                form.AddField("thash", thash);
-                form.AddField("public_key", publicKey);
-                form.AddField("signature", signature);
-            });
+                    form.AddField("transaction", transaction);
+                    form.AddField("thash", thash);
+                    form.AddField("public_key", publicKey);
+                    form.AddField("signature", signature);
+                });
+
+                // Return
+                result = await Send("/sendtransaction");
+                status = true;
+            } catch(Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
         }
 
         public async Task<Tuple<string, bool>> Call(string privateKey, string @class, string name, string thumbnail, Dictionary<string, string> metadata)
         {
             Init();
             await Logic(privateKey, @class, name, thumbnail, metadata);
-            await Send("/sendtransaction");
 
             return new Tuple<string, bool>(result, status);
         }

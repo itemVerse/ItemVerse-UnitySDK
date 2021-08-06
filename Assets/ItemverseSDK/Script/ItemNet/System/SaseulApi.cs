@@ -1,37 +1,41 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class SaseulApi
+namespace SASEULAPI
 {
-    public WWWForm form = new WWWForm();
-
-    public string result = null;
-    public bool status = false;
-
-    public void Init()
+    public class SaseulApi
     {
-        result = null;
-        status = false;
-        form = new WWWForm();
-    }
+        public WWWForm form = new WWWForm();
 
-    public async Task Send(string apiUrl)
-    {
-        UnityWebRequest www = UnityWebRequest.Post(ItemNetStatus.Instance._url + apiUrl, form);
+        public string result = null;
+        public bool status = false;
 
-        await www.SendWebRequest();
-
-        if (www.error != null)
+        public void Init()
         {
-            result = www.downloadHandler.text.ToString();
+            result = null;
             status = false;
+            form = new WWWForm();
         }
-        else
+
+        public async Task<string> Send(string apiUrl)
         {
-            result = www.downloadHandler.text.ToString();
-            status = true;
+            try
+            {
+                using (UnityWebRequest www = UnityWebRequest.Post(ItemNetStatus.Instance._url + apiUrl, form))
+                {
+                    await www.SendWebRequest();
+
+                    if (www.error != null) throw new Exception(www.downloadHandler.text.ToString());
+
+                    return www.downloadHandler.text.ToString();
+                }
+            } catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

@@ -28,8 +28,12 @@ namespace SASEULAPI
 
         private async Task Logic(string from, int page, int count, int sort)
         {
-            await Task.Run(() =>
+            try
             {
+                // check from 
+                SaseulUtil.Instance.CheckAddress(from);
+
+                // Process
                 ListNFTStructure structure = new ListNFTStructure();
 
                 structure.type = "ListNFT";
@@ -41,14 +45,21 @@ namespace SASEULAPI
                 string request = JsonUtility.ToJson(structure);
 
                 form.AddField("request", request);
-            });
+
+                // Return
+                result = await Send("/request");
+                status = true;
+            } catch(Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
         }
 
         public async Task<Tuple<string, bool>> Call(string from, int page, int count, int sort)
         {
             Init();
             await Logic(from, page, count, sort);
-            await Send("/request");
 
             return new Tuple<string, bool> (result, status);
         }

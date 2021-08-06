@@ -28,15 +28,20 @@ namespace IEthereumAPI
 
         private async Task Logic(string address, string contractAddress)
         {
-            var abi = new BalanceOfFunction()
-            {
-                Owner = address,
-            };
-
-            var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<BalanceOfFunction>();
-
             try
             {
+                // check address
+                IEthereumUtil.Instance.CheckAddress(address);
+                // check contract address
+                IEthereumUtil.Instance.CheckAddress(contractAddress);
+
+                var abi = new BalanceOfFunction()
+                {
+                    Owner = address,
+                };
+
+                var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<BalanceOfFunction>();
+
                 var value = await handler.QueryAsync<object>(contractAddress, abi);
 
                 result = value.ToString();

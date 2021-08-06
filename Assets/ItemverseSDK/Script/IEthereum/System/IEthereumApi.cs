@@ -1,11 +1,14 @@
-﻿public class IEthereumApi
+﻿namespace IEthereumAPI
 {
-    public string result = null;
-    public bool status = false;
-
-    public void Init()
+    public class IEthereumApi
     {
-        result = null;
-        status = false;
+        public string result = null;
+        public bool status = false;
+
+        public void Init()
+        {
+            result = null;
+            status = false;
+        }
     }
 }

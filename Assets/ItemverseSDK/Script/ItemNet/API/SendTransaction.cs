@@ -17,26 +17,43 @@ namespace SASEULAPI
 
         private async Task Logic(string privateKey, string transactionData)
         {
-            await Task.Run(() =>
+            try
             {
-                string publicKey = SASEULEnc.MakePublicKey(privateKey);
-                string address = SASEULEnc.MakeAddress(publicKey);
+                // check privateKey
+                SaseulUtil.Instance.CheckPrivateKey(privateKey);
+                // check enter value
+                SaseulUtil.Instance.CheckEnterValue(transactionData);
 
-                string transaction = transactionData;
-                string thash = SASEULEnc.THash(transaction);
-                string signature = SASEULEnc.MakeSignature(thash, privateKey);
-                form.AddField("transaction", transaction);
-                form.AddField("thash", thash);
-                form.AddField("public_key", publicKey);
-                form.AddField("signature", signature);
-            });
+                // Process
+                await Task.Run(() =>
+                {
+                    string publicKey = SASEULEnc.MakePublicKey(privateKey);
+                    string address = SASEULEnc.MakeAddress(publicKey);
+
+                    string transaction = transactionData;
+                    string thash = SASEULEnc.THash(transaction);
+                    string signature = SASEULEnc.MakeSignature(thash, privateKey);
+
+                    form.AddField("transaction", transaction);
+                    form.AddField("thash", thash);
+                    form.AddField("public_key", publicKey);
+                    form.AddField("signature", signature);
+                });
+
+                // Return
+                result = await Send("/sendtransaction");
+                status = true;
+            } catch(Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
         }
 
         public async Task<Tuple<string, bool>> Call(string privateKey, string transactionData)
         {
             Init();
             await Logic(privateKey, transactionData);
-            await Send("/sendtransaction");
 
             return new Tuple<string, bool>(result, status);
         }

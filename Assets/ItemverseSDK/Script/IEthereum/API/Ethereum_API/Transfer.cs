@@ -19,6 +19,11 @@ namespace IEthereumAPI
         {
             try
             {
+                // check privateKey
+                IEthereumUtil.Instance.CheckPrivateKey(privateKey);
+                // check toAddress
+                IEthereumUtil.Instance.CheckAddress(toAddress);
+
                 IEthereumUtil.Instance.LoginWeb3(privateKey);
 
                 var value = await IEthereumStatus.Instance._web3.Eth.GetEtherTransferService().TransferEtherAsync(toAddress, amount);

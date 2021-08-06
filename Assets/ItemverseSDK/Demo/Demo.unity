@@ -714,6 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   privateKey: a6f5919db06cc6b6d3e15ced88a75f538f41f6b7a08c15fcdbbdd707b526a358
   address: 0x287DB8145a10990fF6320A85fbFeCA7A44C3D562
+  toPrivateKey: 74945e566f482e022cbd0afba6b4c2ae15781f3551b0966e626c16fe432ec45e
   toAddress: 0xB666D5dEd9510C913a0703dDa2D4803a31f56B40
   tokenAmount: 1
   erc721TokenID: 1
@@ -3662,7 +3663,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1024399503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7d162749ea94a1da12afce896d6f7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 009f76b1864e14710af09562d4792938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resultLogText: {fileID: 213891741}
@@ -8129,7 +8130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135194719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d0ae29fb1ad48a39d21e0c8434ba17, type: 3}
+  m_Script: {fileID: 11500000, guid: 67bc049733feb42bd8754e8f6b9d0a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: itemnet
@@ -8342,6 +8343,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.326
       objectReference: {fileID: 0}
+    - target: {fileID: 5386386583466549551, guid: 0991eed7929c0422ebc4cd1fd4ca3bd7,
+        type: 3}
+      propertyPath: netType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5386386583466549553, guid: 0991eed7929c0422ebc4cd1fd4ca3bd7,
         type: 3}
       propertyPath: m_Name
@@ -8414,6 +8420,11 @@ PrefabInstance:
     - target: {fileID: 8807381502293431014, guid: 1ec00690af6bd4548b35ca1781c446e3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807381502293431015, guid: 1ec00690af6bd4548b35ca1781c446e3,
+        type: 3}
+      propertyPath: netType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

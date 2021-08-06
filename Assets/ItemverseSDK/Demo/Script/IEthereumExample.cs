@@ -6,6 +6,8 @@ using System.Reflection;
 using UnityEngine;
 
 using ITEM_NET;
+using IEthereumAPI;
+
 using Nethereum.Hex.HexTypes;
 using Nethereum.Web3.Accounts;
 
@@ -199,8 +201,9 @@ public class IEthereumExample : MonoBehaviour
         }
 
         // get result of tokenOfOwnerByIndex
-        var resultTokenOfOwnerByIndex = await ieth.ERC721_TokenOfOwnerByIndex.Call(address, erc721TokenIndex, erc721ContractAddress);
-        logManager.ResultLog(MethodBase.GetCurrentMethod().Name, resultTokenOfOwnerByIndex.Item1, resultTokenOfOwnerByIndex.Item2);
+        await ieth.ERC721_TokenOfOwnerByIndex.Call(address, erc721TokenIndex, erc721ContractAddress).ContinueWith(task => {
+            logManager.ResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
+        });
     }
 
     public void Example_ERC721_Name()
@@ -275,7 +278,8 @@ public class IEthereumExample : MonoBehaviour
         }
 
         // transfer ERC-721 token
-        var resultERC721Transfer = await ieth.ERC721_Transfer.Call(privateKey, toAddress, erc721TokenID, erc721ContractAddress);
-        logManager.ResultLog(MethodBase.GetCurrentMethod().Name, resultERC721Transfer.Item1, resultERC721Transfer.Item2);
+        await ieth.ERC721_Transfer.Call(privateKey, toAddress, erc721TokenID, erc721ContractAddress).ContinueWith(task => {
+            logManager.ResultLog(MethodBase.GetCurrentMethod().Name, task.Result.Item1, task.Result.Item2);
+        });
     }
 }

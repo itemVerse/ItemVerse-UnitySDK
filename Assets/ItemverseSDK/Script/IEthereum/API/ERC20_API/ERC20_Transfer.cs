@@ -32,18 +32,25 @@ namespace IEthereumAPI
 
         private async Task Logic(string privateKey, string toAddress, BigInteger tokenAmount, string contractAddress)
         {
-            IEthereumUtil.Instance.LoginWeb3(privateKey);
-
-            var abi = new TransferFunction()
-            {
-                To = toAddress,
-                TokenAmount = Web3.Convert.ToWei(tokenAmount),
-            };
-
-            var handler = IEthereumStatus.Instance._web3.Eth.GetContractTransactionHandler<TransferFunction>();
-
             try
             {
+                // check privateKey
+                IEthereumUtil.Instance.CheckPrivateKey(privateKey);
+                // check toAddress
+                IEthereumUtil.Instance.CheckAddress(toAddress);
+                // check contract address
+                IEthereumUtil.Instance.CheckAddress(contractAddress);
+
+                IEthereumUtil.Instance.LoginWeb3(privateKey);
+
+                var abi = new TransferFunction()
+                {
+                    To = toAddress,
+                    TokenAmount = Web3.Convert.ToWei(tokenAmount),
+                };
+
+                var handler = IEthereumStatus.Instance._web3.Eth.GetContractTransactionHandler<TransferFunction>();
+
                 var value = await handler.SendRequestAsync(contractAddress, abi);
 
                 result = value.ToString();

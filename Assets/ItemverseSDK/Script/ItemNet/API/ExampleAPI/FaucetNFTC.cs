@@ -27,34 +27,47 @@ namespace SASEULAPI
 
         private async Task Logic(string privateKey)
         {
-            await Task.Run(() =>
+            try
             {
-                FaucetNFTCStructure structure = new FaucetNFTCStructure();
+                // check privateKey
+                SaseulUtil.Instance.CheckPrivateKey(privateKey);
 
-                string publicKey = SASEULEnc.MakePublicKey(privateKey);
-                string address = SASEULEnc.MakeAddress(publicKey);
+                // Process
+                await Task.Run(() =>
+                {
+                    string publicKey = SASEULEnc.MakePublicKey(privateKey);
+                    string address = SASEULEnc.MakeAddress(publicKey);
 
-                structure.type = "FaucetNFTC";
-                structure.version = ItemNetStatus.Instance.version;
-                structure.from = address;
-                structure.timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds() * 1000;
+                    FaucetNFTCStructure structure = new FaucetNFTCStructure();
+                    structure.type = "FaucetNFTC";
+                    structure.version = ItemNetStatus.Instance.version;
+                    structure.from = address;
+                    structure.timestamp = DateTimeOffset.Now.ToUnixTimeMilliseconds() * 1000;
 
-                string transaction = JsonUtility.ToJson(structure);
-                string thash = SASEULEnc.THash(transaction);
-                string signature = SASEULEnc.MakeSignature(thash, privateKey);
+                    string transaction = JsonUtility.ToJson(structure);
+                    string thash = SASEULEnc.THash(transaction);
+                    string signature = SASEULEnc.MakeSignature(thash, privateKey);
 
-                form.AddField("transaction", transaction);
-                form.AddField("thash", thash);
-                form.AddField("public_key", publicKey);
-                form.AddField("signature", signature);
-            });
+                    form.AddField("transaction", transaction);
+                    form.AddField("thash", thash);
+                    form.AddField("public_key", publicKey);
+                    form.AddField("signature", signature);
+                });
+
+                // Return
+                result = await Send("/sendtransaction");
+                status = true;
+            } catch(Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
         }
 
         public async Task<Tuple<string, bool>> Call(string privateKey)
         {
             Init();
             await Logic(privateKey);
-            await Send("/sendtransaction");
 
             return new Tuple<string, bool>(result, status);
         }

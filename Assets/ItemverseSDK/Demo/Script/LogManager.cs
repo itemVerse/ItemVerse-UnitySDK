@@ -63,9 +63,12 @@ public class LogManager : MonoBehaviour
 
         if (status == false)
         {
-            SASEULError e = JsonConvert.DeserializeObject<SASEULError>(result);
-            e.@params = JsonConvert.SerializeObject(e.@params);
-            result = $"(code: {e.code}, status: {e.status}, msg: {e.msg}, params: {e.@params})";
+            if(result.Substring(0, 1) == "{")
+            {
+                SASEULError e = JsonConvert.DeserializeObject<SASEULError>(result);
+                e.@params = JsonConvert.SerializeObject(e.@params);
+                result = $"(code: {e.code}, status: {e.status}, msg: {e.msg}, params: {e.@params})";
+            }
         }
 
         resultLog = result;

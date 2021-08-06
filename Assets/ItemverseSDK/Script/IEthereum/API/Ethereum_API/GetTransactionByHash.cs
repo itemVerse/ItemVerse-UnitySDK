@@ -21,6 +21,9 @@ namespace IEthereumAPI
         {
             try
             {
+                // check transactionHash
+                IEthereumUtil.Instance.CheckTransactionHash(transactionHash);
+
                 var value = await IEthereumStatus.Instance._web3.Eth.Transactions.GetTransactionByHash.SendRequestAsync(transactionHash);
 
                 result = JsonConvert.SerializeObject(value);

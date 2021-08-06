@@ -22,6 +22,9 @@ namespace IEthereumAPI
         {
             try
             {
+                // check address
+                IEthereumUtil.Instance.CheckAddress(address);
+
                 var value = await IEthereumStatus.Instance._web3.Eth.GetBalance.SendRequestAsync(address);
 
                 result = Web3.Convert.FromWei(value, UnitConversion.EthUnit.Ether).ToString();

@@ -2,23 +2,27 @@
 
 using UnityEngine;
 
-public class ItemNetStatus : MonoBehaviour
+namespace SASEULAPI
 {
-    public static ItemNetStatus Instance;
-
-    private void Awake()
+    public class ItemNetStatus : MonoBehaviour
     {
-        Instance = gameObject.GetComponent<ItemNetStatus>();
+        public static ItemNetStatus Instance;
 
-        SaseulUtil.Instance.SetNetwork(ItemNetStatus.Instance.netType);
+        private void Awake()
+        {
+            Instance = gameObject.GetComponent<ItemNetStatus>();
+
+            SaseulUtil.Instance.SetNetwork(ItemNetStatus.Instance.netType);
+        }
+
+        public enum NetType { main, etc };
+        public NetType netType = NetType.main;
+
+        public string mainUrl = "https://aria.itemverse.io";
+        public string etcUrl = "https://bolero.itemverse.io";
+
+        public string version = "1.2.2.13";
+
+        [NonSerialized] public string _url;
     }
-
-    public string netType = "main"; // main, etc
-
-    public string mainUrl = "https://aria.itemverse.io";
-    public string etcUrl = "https://bolero.itemverse.io";
-
-    public string version = "1.2.2.13";
-
-    [NonSerialized] public string _url;
 }

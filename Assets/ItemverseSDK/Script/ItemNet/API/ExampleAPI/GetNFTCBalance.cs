@@ -25,8 +25,12 @@ namespace SASEULAPI
 
         private async Task Logic(string from)
         {
-            await Task.Run(() =>
+            try
             {
+                // check from
+                SaseulUtil.Instance.CheckAddress(from);
+
+                // Process
                 GetNFTCBalanceStructure structure = new GetNFTCBalanceStructure();
 
                 structure.type = "GetNFTCBalance";
@@ -35,14 +39,21 @@ namespace SASEULAPI
                 string request = JsonUtility.ToJson(structure);
 
                 form.AddField("request", request);
-            });
+
+                // Return
+                result = await Send("/request");
+                status = true;
+            } catch(Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
         }
 
         public async Task<Tuple<string, bool>> Call(string from)
         {
             Init();
             await Logic(from);
-            await Send("/request");
 
             return new Tuple<string, bool>(result, status);
         }

@@ -25,24 +25,34 @@ namespace SASEULAPI
 
         private async Task Logic(string nftuuid)
         {
-            await Task.Run(() =>
+            try
             {
-                GetNFTStructure structure = new GetNFTStructure();
+                // check nftuuid
+                SaseulUtil.Instance.CheckNFTUUID(nftuuid);
 
+                // Process
+                GetNFTStructure structure = new GetNFTStructure();
                 structure.type = "GetNFT";
                 structure.nftuuid = nftuuid;
 
                 string request = JsonUtility.ToJson(structure);
 
                 form.AddField("request", request);
-            });
+
+                // Return
+                result = await Send("/request");
+                status = true;
+            } catch(Exception e)
+            {
+                result = e.Message.ToString();
+                status = false;
+            }
         }
 
         public async Task<Tuple<string, bool>> Call(string nftuuid)
         {
             Init();
             await Logic(nftuuid);
-            await Send("/request");
 
             return new Tuple<string, bool>(result, status);
         }

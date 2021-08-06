@@ -23,12 +23,15 @@ namespace IEthereumAPI
 
         private async Task Logic(string contractAddress)
         {
-            var abi = new TotalSupplyFunction() { };
-
-            var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<TotalSupplyFunction>();
-
             try
             {
+                // check contract address
+                IEthereumUtil.Instance.CheckAddress(contractAddress);
+
+                var abi = new TotalSupplyFunction() { };
+
+                var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<TotalSupplyFunction>();
+
                 var value = await handler.QueryAsync<object>(contractAddress, abi);
 
                 result = value.ToString();

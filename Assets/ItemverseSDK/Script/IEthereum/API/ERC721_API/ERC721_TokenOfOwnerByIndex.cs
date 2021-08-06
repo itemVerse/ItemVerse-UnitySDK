@@ -33,17 +33,22 @@ namespace IEthereumAPI
 
         private async Task Logic(string address, BigInteger index, string contractAddress)
         {
-            var abi = new TokenOfOwnerByIndexFunction()
-            {
-                Owner = address,
-                Index = index,
-            };
-
-            var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<TokenOfOwnerByIndexFunction>();
-
             try
             {
-                var value = await handler.QueryAsync<BigInteger>(contractAddress, abi);
+                // check address
+                IEthereumUtil.Instance.CheckAddress(address);
+                // check contract address
+                IEthereumUtil.Instance.CheckAddress(contractAddress);
+
+                var abi = new TokenOfOwnerByIndexFunction()
+                {
+                    Owner = address,
+                    Index = index,
+                };
+
+                var handler = IEthereumStatus.Instance._web3.Eth.GetContractQueryHandler<TokenOfOwnerByIndexFunction>();
+
+                var value = await handler.QueryAsync<object>(contractAddress, abi);
 
                 result = value.ToString();
                 status = true;
