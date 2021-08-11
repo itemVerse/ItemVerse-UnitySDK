@@ -1,25 +1,17 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{61E99E34-1B2E-061A-8E55-AB83C4C47B82}|">
+  <MonoDevelop.Ide.ItemProperties.Itemverse PreferredExecutionTarget="1e480895-c0f2-4d87-8bc7-6874fe3e0d31" />
   <MonoDevelop.Ide.ItemProperties.NewAssembly PreferredExecutionTarget="b01087a2-3a0a-468b-89ac-7d4cceb26603" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ItemverseSDK/Script/ItemNet/System/SaseulApi.cs">
-    <Files>
-      <File FileName="Assets/ItemverseSDK/Script/ItemNet/System/SaseulApi.cs" Line="34" Column="18" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ItemVerse" expanded="True">
-            <Node name="NewAssembly" expanded="True">
-              <Node name="Assets" expanded="True">
-                <Node name="ItemverseSDK" expanded="True">
-                  <Node name="Demo" expanded="True">
-                    <Node name="Script" expanded="True" />
-                  </Node>
-                  <Node name="Script" expanded="True">
-                    <Node name="ItemNet" expanded="True">
-                      <Node name="System" expanded="True">
-                        <Node name="SaseulApi.cs" selected="True" />
-                      </Node>
-                    </Node>
+            <Node name="Assets" expanded="True">
+              <Node name="ItemverseSDK" expanded="True">
+                <Node name="Script" expanded="True">
+                  <Node name="UTIL" expanded="True">
+                    <Node name="Chaos.NaCl" expanded="True" />
+                    <Node name="Ripemd" expanded="True" />
                   </Node>
                 </Node>
               </Node>

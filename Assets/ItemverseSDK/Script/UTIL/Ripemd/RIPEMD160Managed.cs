@@ -1,8 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-// See the LICENSE file in the project root for more information.
-
-// Contributed to .NET Foundation by Darren R. Starr - Conscia Norway AS
+﻿// Contributed to .NET Foundation by Darren R. Starr - Conscia Norway AS
 //
 // Awaiting permission from Antoon Bosselaers - Katholieke Universiteit Leuven 
 //   for permission/clarification regarding the use the original code from which
