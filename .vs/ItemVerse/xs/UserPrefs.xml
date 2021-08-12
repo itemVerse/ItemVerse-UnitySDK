@@ -1,19 +1,26 @@
 ﻿<Properties StartupConfiguration="{61E99E34-1B2E-061A-8E55-AB83C4C47B82}|">
-  <MonoDevelop.Ide.ItemProperties.Itemverse PreferredExecutionTarget="1e480895-c0f2-4d87-8bc7-6874fe3e0d31" />
+  <MonoDevelop.Ide.ItemProperties.Itemverse PreferredExecutionTarget="5b56bd10-aa68-43eb-81e6-bb3f0c39a141" />
   <MonoDevelop.Ide.ItemProperties.NewAssembly PreferredExecutionTarget="b01087a2-3a0a-468b-89ac-7d4cceb26603" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ItemverseSDK/link.xml">
+    <Files>
+      <File FileName="Assets/ItemverseSDK/Script/UTIL/Chaos.NaCl/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/ItemverseSDK/Script/UTIL/Chaos.NaCl/Properties/AssemblyInfoFull.cs" Line="1" Column="1" />
+      <File FileName="Assets/ItemverseSDK/Script/UTIL/Ripemd/LICENSE.txt" Line="1" Column="1" />
+      <File FileName="Assets/ItemverseSDK/Script/UTIL/Ripemd/RIPEMD160.cs" Line="1" Column="1" />
+      <File FileName="Assets/ItemverseSDK/Script/UTIL/Ripemd/RIPEMD160Managed.cs" Line="1" Column="1" />
+      <File FileName="Assets/ItemverseSDK/link.xml" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ItemVerse" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="ItemverseSDK" expanded="True">
-                <Node name="Script" expanded="True">
-                  <Node name="UTIL" expanded="True">
-                    <Node name="Chaos.NaCl" expanded="True" />
-                    <Node name="Ripemd" expanded="True" />
-                  </Node>
+                <Node name="Demo" expanded="True">
+                  <Node name="Script" expanded="True" />
                 </Node>
+                <Node name="Script" expanded="True" />
+                <Node name="link.xml" selected="True" />
               </Node>
             </Node>
           </Node>

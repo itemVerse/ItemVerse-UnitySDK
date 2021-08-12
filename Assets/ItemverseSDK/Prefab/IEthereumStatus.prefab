@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82e46dcf4b5a4c57abc3aa91625a88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  netType: ropsten
+  netType: 1
   mainInfuraUrl: https://mainnet.infura.io/v3/fc3485d7dd30453f9bdcf29c4b226787
   ropstenInfuraUrl: https://ropsten.infura.io/v3/fc3485d7dd30453f9bdcf29c4b226787
   etcInfuraUrl: 
