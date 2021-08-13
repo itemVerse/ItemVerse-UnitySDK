@@ -1,15 +1,7 @@
 ﻿<Properties StartupConfiguration="{61E99E34-1B2E-061A-8E55-AB83C4C47B82}|">
-  <MonoDevelop.Ide.ItemProperties.Itemverse PreferredExecutionTarget="5b56bd10-aa68-43eb-81e6-bb3f0c39a141" />
+  <MonoDevelop.Ide.ItemProperties.Itemverse PreferredExecutionTarget="b29a6d27-0895-4269-8522-da91e6ce7a3b" />
   <MonoDevelop.Ide.ItemProperties.NewAssembly PreferredExecutionTarget="b01087a2-3a0a-468b-89ac-7d4cceb26603" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ItemverseSDK/link.xml">
-    <Files>
-      <File FileName="Assets/ItemverseSDK/Script/UTIL/Chaos.NaCl/Properties/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="Assets/ItemverseSDK/Script/UTIL/Chaos.NaCl/Properties/AssemblyInfoFull.cs" Line="1" Column="1" />
-      <File FileName="Assets/ItemverseSDK/Script/UTIL/Ripemd/LICENSE.txt" Line="1" Column="1" />
-      <File FileName="Assets/ItemverseSDK/Script/UTIL/Ripemd/RIPEMD160.cs" Line="1" Column="1" />
-      <File FileName="Assets/ItemverseSDK/Script/UTIL/Ripemd/RIPEMD160Managed.cs" Line="1" Column="1" />
-      <File FileName="Assets/ItemverseSDK/link.xml" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -19,8 +11,24 @@
                 <Node name="Demo" expanded="True">
                   <Node name="Script" expanded="True" />
                 </Node>
-                <Node name="Script" expanded="True" />
-                <Node name="link.xml" selected="True" />
+                <Node name="Plugins" expanded="True">
+                  <Node name="BouncyCastleCrypto" expanded="True" />
+                  <Node name="CommonLoggingCore" expanded="True" />
+                  <Node name="MicrosoftExtensionsLoggingAbstractions" expanded="True" />
+                  <Node name="Nethereum" expanded="True" />
+                  <Node name="SystemBuffer" expanded="True" />
+                  <Node name="SystemRuntimeCompilerServicesUnsafe" expanded="True" />
+                  <Node name="SystemThreadingTasksExtensions" expanded="True" />
+                  <Node name="SystemValueTuple" expanded="True" />
+                </Node>
+                <Node name="Script" expanded="True">
+                  <Node name="UTIL" expanded="True">
+                    <Node name="Chaos.NaCl" expanded="True">
+                      <Node name="LICENSE.txt" selected="True" />
+                    </Node>
+                    <Node name="Ripemd" expanded="True" />
+                  </Node>
+                </Node>
               </Node>
             </Node>
           </Node>

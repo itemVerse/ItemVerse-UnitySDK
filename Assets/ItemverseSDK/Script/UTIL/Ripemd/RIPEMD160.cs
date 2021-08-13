@@ -1,4 +1,6 @@
-﻿namespace System.Security.Cryptography
+﻿// Contributed to .NET Foundation by Darren R. Starr - Conscia Norway AS
+
+namespace System.Security.Cryptography
 {
     public abstract class RIPEMD160 : System.Security.Cryptography.HashAlgorithm
     {
