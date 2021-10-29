@@ -100,7 +100,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
           - main: main network of the SASEUL.
           - etc: You can use it when you want to register an additional SASEUL network.
         - Main Url, Etc Url
-          - You can check the url of each network by accessing ItemNet Explorer ( https://explorer.itemverse.io/ ).
+          - You can check the url of each network by accessing ItemNet Explorer ( https://explorer.itemverse.saseul.com/ ).
         - Version
           - Enter the version of the SASEUL you want to use.
       - SASEUL test data configuration
@@ -145,10 +145,10 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
     4. Test Ethereum Explorer: https://ropsten.etherscan.io/
 
 9. Useful sites for SASEUL test.
-    1. SASEUL Explorer: https://explorer.itemverse.io/
+    1. SASEUL Explorer: https://explorer.itemverse.saseul.com/
     2. SASEUL official site: https://saseul.com/#/
     3. Developer site: https://artifriends.com/
-    4. SDK official introduction site: https://itemverse.io/
+    4. SDK official introduction site: https://itemverse.saseul.com/
 
 ------
 
@@ -542,7 +542,7 @@ SASEUL is a third-generation blockchain engine that has solved the chronic probl
 
   - **example:** ItemverseSDK/Demo/Script/ItemNetExample.cs
 
-  - **API document:** https://docs.itemverse.io
+  - **API document:** https://docs.itemverse.saseul.com/
 
   - **<u>note:</u>** Except for the APIs below, APIs such as CreateNFT have been added temporarily. The temporary API is subject to change with future updates.
 

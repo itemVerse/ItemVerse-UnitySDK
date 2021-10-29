@@ -100,7 +100,7 @@
          - main: 사슬의 메인 네트워크입니다.
          - etc: 추가로 사슬 네트워크를 등록하고싶을때 사용하시면됩니다.
        - Main Url, Etc Url
-         - ItemNet Explorer( https://explorer.itemverse.io/ )에 접속하여 각 네트워크의 url을 확인 하실 수 있습니다.
+         - ItemNet Explorer( https://explorer.itemverse.saseul.com/ )에 접속하여 각 네트워크의 url을 확인 하실 수 있습니다.
        - Version
          - 사용하고싶은 사슬의 버전을 입력하시면됩니다.
      - 사슬 테스트 데이터 설정
@@ -145,10 +145,10 @@
    4. 테스트 이더리움 익스플로러: https://ropsten.etherscan.io/
 
 9. 사슬 테스트에 유용한 사이트입니다.
-   1. 사슬 익스플로러: https://explorer.itemverse.io/
+   1. 사슬 익스플로러: https://explorer.itemverse.saseul.com/
    2. 사슬 공식 사이트: https://saseul.com/#/
    3. 개발사 사이트: https://artifriends.com/
-   4. SDK 공식 소개 사이트: https://itemverse.io/
+   4. SDK 공식 소개 사이트: https://itemverse.saseul.com/
 
 ------
 
@@ -541,7 +541,7 @@
 
  - **예제:** ItemverseSDK/Demo/Script/ItemNetExample.cs
 
- - **API 문서:** https://docs.itemverse.io
+ - **API 문서:** https://docs.itemverse.saseul.com
 
  - **<u>주의:</u>** 아래의 API를 제외한 ItemverseSDK/Script/ItemNet/API/ExampleAPI 폴더 안에 API 스크립트들은 임시로 추가된 API입니다. 임시 API는 차후 업데이트에 따라 변경이 될 수 있습니다.
 
