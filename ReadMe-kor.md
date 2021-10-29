@@ -100,6 +100,8 @@
          - main: 사슬의 메인 네트워크입니다.
          - etc: 추가로 사슬 네트워크를 등록하고싶을때 사용하시면됩니다.
        - Main Url, Etc Url
+
+         ![saseul Node](https://user-images.githubusercontent.com/54205715/139356406-c8372d05-59dd-4033-958e-4be466b608d3.png)
          - ItemNet Explorer( https://explorer.itemverse.saseul.com/ )에 접속하여 각 네트워크의 url을 확인 하실 수 있습니다.
        - Version
          - 사용하고싶은 사슬의 버전을 입력하시면됩니다.
